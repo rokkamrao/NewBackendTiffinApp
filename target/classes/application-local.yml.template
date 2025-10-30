@@ -1,0 +1,23 @@
+# Razorpay Test Configuration Template
+# Copy this file to application-local.yml and add your actual test keys
+
+app:
+  razorpay:
+    # Get these from: https://dashboard.razorpay.com/app/keys (in Test Mode)
+    key-id: rzp_test_XXXXXXXXXXXXXXX
+    key-secret: YOUR_TEST_KEY_SECRET_HERE
+    
+    # Webhook secret (only needed for webhook integration)
+    # Get this when you create a webhook in Razorpay Dashboard
+    webhook-secret: YOUR_WEBHOOK_SECRET_HERE
+
+# To use this configuration:
+# 1. Copy this file to: src/main/resources/application-local.yml
+# 2. Replace the placeholder values with your actual Razorpay test keys
+# 3. Add application-local.yml to .gitignore (already done in most projects)
+# 4. Run the app with: mvn spring-boot:run -Dspring-boot.run.profiles=local
+
+# Alternative: Set as environment variables
+# export RAZORPAY_KEY_ID=rzp_test_XXXXXXXXXXXXXXX
+# export RAZORPAY_KEY_SECRET=YOUR_TEST_KEY_SECRET_HERE
+# export RAZORPAY_WEBHOOK_SECRET=YOUR_WEBHOOK_SECRET_HERE

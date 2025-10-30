@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tiffindb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+app:
+  jwt:
+    secret: tiffin-app-super-secret-jwt-key-2025-min-32-chars-required
+    expiration: 86400000 # 24 hours in milliseconds
+  cors:
+    allowed-origins: http://localhost:4200
+  razorpay:
+    key-id: rzp_test_RXfBZEH79up8IS
+    key-secret: 7LIcTuyMg7vc35HgAJrVK0cW
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:your_webhook_secret}
