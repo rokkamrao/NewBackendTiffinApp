@@ -70,8 +70,15 @@ D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\security\ratelimit\InMe
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\security\ratelimit\RateLimitInterceptor.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\security\ratelimit\RateLimitScheduler.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\TiffinApiApplication.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\dto\AddressDto.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\dto\AddressRequestDto.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\dto\UserDto.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\dto\UserRegistrationDto.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\dto\UserUpdateDto.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\model\Address.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\model\Role.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\model\User.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\repository\AddressRepository.java
 D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\repository\UserRepository.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\service\AddressService.java
+D:\Food Delivery app\tiffin-api\src\main\java\com\tiffin\user\service\UserService.java
