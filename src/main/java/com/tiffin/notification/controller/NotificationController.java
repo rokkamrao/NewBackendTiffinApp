@@ -22,7 +22,7 @@ import java.util.Map;
  * REST controller for notification management
  */
 @RestController
-@RequestMapping("/api/notifications")
+@RequestMapping("/notifications")
 public class NotificationController {
     
     @Autowired

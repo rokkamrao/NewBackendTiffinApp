@@ -36,7 +36,7 @@ public class MembershipPlan {
     private String displayName;
     
     @Nullable
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String description;
     
     @NonNull

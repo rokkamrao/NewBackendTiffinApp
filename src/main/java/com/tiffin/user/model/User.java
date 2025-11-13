@@ -15,6 +15,11 @@ import java.util.List;
 
 /**
  * User entity representing a system user
+ * 
+ * Migration-Safe Design:
+ * - firstName and lastName are nullable to support existing data migration
+ * - phoneVerified and updatedAt are nullable to avoid constraint conflicts
+ * - Default values are provided for all nullable fields to ensure data consistency
  */
 @Entity
 @Table(name = "users", indexes = {
@@ -38,11 +43,11 @@ public class User {
     @Column(nullable = false, length = 255)
     private String password;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     @Builder.Default
     private String firstName = "";
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     @Builder.Default
     private String lastName = "";
 
@@ -54,15 +59,15 @@ public class User {
     @Builder.Default
     private Role role = Role.USER;
 
-    @Column(nullable = false)
+    @Column(nullable = true)  // Allow null during migration
     @Builder.Default
     private boolean active = true;
 
-    @Column(nullable = false)
+    @Column(nullable = true)  // Allow null during migration
     @Builder.Default
     private boolean emailVerified = false;
 
-    @Column(nullable = false)
+    @Column
     @Builder.Default
     private boolean phoneVerified = false;
 
@@ -73,11 +78,11 @@ public class User {
     private String preferredLanguage;
 
     @CreationTimestamp
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = true, updatable = false)  // Allow null during migration
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(nullable = false)
+    @Column
     private LocalDateTime updatedAt;
 
     @Column

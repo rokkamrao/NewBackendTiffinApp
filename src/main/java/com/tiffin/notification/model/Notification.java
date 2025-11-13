@@ -29,7 +29,7 @@ public class Notification {
     @Column(name = "title", nullable = false, length = 200)
     private String title;
     
-    @Column(name = "message", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "message", nullable = false, columnDefinition = "text")
     private String message;
     
     @Enumerated(EnumType.STRING)
@@ -50,7 +50,7 @@ public class Notification {
     @Column(name = "delivery_id")
     private Long deliveryId;
     
-    @Column(name = "metadata", columnDefinition = "TEXT")
+    @Column(name = "metadata", columnDefinition = "text")
     private String metadata; // JSON string for additional data
     
     @Column(name = "created_at", nullable = false)

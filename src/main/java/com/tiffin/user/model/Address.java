@@ -57,10 +57,12 @@ public class Address {
     private String deliveryInstructions;
 
     // Geographic coordinates for delivery optimization
-    @Column(precision = 10, scale = 8)
+    // Note: Double types should not use precision/scale annotations
+    // Removed scale annotations to avoid "scale has no meaning for SQL floating point types" error
+    @Column
     private Double latitude;
 
-    @Column(precision = 11, scale = 8)
+    @Column 
     private Double longitude;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Features: Multi-level caching, intelligent session management, security monitoring
  */
 @RestController
-@RequestMapping("/api/auth/advanced")
+@RequestMapping("/auth/advanced")
 @CrossOrigin(origins = "*")
 @Slf4j
 public class AdvancedAuthController {

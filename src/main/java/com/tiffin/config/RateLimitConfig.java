@@ -16,6 +16,7 @@ public class RateLimitConfig implements WebMvcConfigurer {
     @Autowired
     private RateLimitInterceptor rateLimitInterceptor;
     
+    @SuppressWarnings("null")
     @Override
     public void addInterceptors(@NonNull InterceptorRegistry registry) {
         registry.addInterceptor(rateLimitInterceptor)

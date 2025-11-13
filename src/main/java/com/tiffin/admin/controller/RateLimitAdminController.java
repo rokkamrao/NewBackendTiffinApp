@@ -13,7 +13,7 @@ import java.util.Map;
  * Admin controller for rate limiting management
  */
 @RestController
-@RequestMapping("/api/admin/rate-limit")
+@RequestMapping("/admin/rate-limit")
 @PreAuthorize("hasRole('ADMIN')")
 public class RateLimitAdminController {
     

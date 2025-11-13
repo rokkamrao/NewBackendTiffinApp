@@ -1,0 +1,136 @@
+# Production configuration for Tiffin API
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/tiffindb_prod}
+    username: ${DATABASE_USERNAME:tiffin_prod_user}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      pool-name: TiffinHikariCP-Prod
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # NEVER use 'update' in production
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false  # Disable SQL logging in production
+    properties:
+      hibernate:
+        format_sql: false
+        globally_quoted_identifiers: true
+        jdbc:
+          batch_size: 50
+          fetch_size: 50
+        order_inserts: true
+        order_updates: true
+        generate_statistics: false
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+    open-in-view: false
+
+  security:
+    user:
+      name: ${ADMIN_USERNAME:admin}
+      password: ${ADMIN_PASSWORD}  # REQUIRED in production
+
+  # SSL configuration for production
+  ssl:
+    enabled: ${SSL_ENABLED:true}
+    key-store: ${SSL_KEYSTORE_PATH:classpath:keystore.p12}
+    key-store-password: ${SSL_KEYSTORE_PASSWORD}
+    key-store-type: PKCS12
+
+server:
+  port: ${SERVER_PORT:8443}  # Use 8443 for HTTPS
+  servlet:
+    context-path: /api
+  error:
+    include-stacktrace: never  # Never expose stacktrace in production
+    include-exception: false
+    include-binding-errors: never
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+  http2:
+    enabled: true
+
+# Production application configuration
+app:
+  jwt:
+    secret: ${JWT_SECRET}  # REQUIRED - 256-bit secret
+    expiration: 28800000  # 8 hours in production
+  cors:
+    allowed-origins: ${CORS_ORIGINS:https://yourdomain.com,https://www.yourdomain.com}
+  razorpay:
+    key-id: ${RAZORPAY_KEY_ID}  # REQUIRED - production key
+    key-secret: ${RAZORPAY_KEY_SECRET}  # REQUIRED - production secret
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET}  # REQUIRED - webhook verification
+  environment: production
+
+# Security logging - careful with sensitive data
+logging:
+  level:
+    com.tiffin: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    org.hibernate.type.descriptor.sql.BasicBinder: WARN
+    org.springframework.web.filter.CommonsRequestLoggingFilter: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+  file:
+    name: /var/log/tiffin-api/tiffin-api.log
+    max-size: 500MB
+    max-history: 30
+    total-size-cap: 10GB
+
+# Production monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: never  # Hide sensitive health details
+    metrics:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  health:
+    mail:
+      enabled: false
+
+# Application info for monitoring
+info:
+  app:
+    name: Tiffin API
+    description: Food delivery and subscription platform API - Production
+    version: '0.0.1-SNAPSHOT'
+    build-time: '2025-11-13T11:03:44Z'
+    java-version: '21.0.9'
+    profile: production
+
+# Additional production settings
+server:
+  tomcat:
+    max-threads: 200
+    min-spare-threads: 10
+    connection-timeout: 20000
+    max-connections: 8192
+    accept-count: 100
+    max-http-post-size: 2MB

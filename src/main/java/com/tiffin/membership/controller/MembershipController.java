@@ -19,7 +19,7 @@ import java.util.Optional;
  * Handles subscription management, upgrades, and benefits
  */
 @RestController
-@RequestMapping("/api/membership")
+@RequestMapping("/membership")
 @RequiredArgsConstructor
 @Slf4j
 public class MembershipController {

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dishes")
+@RequestMapping("/menu")
 @RequiredArgsConstructor
 public class DishController {
     private final DishRepository dishRepository;
     
-    @GetMapping
+    @GetMapping("/dishes")
     public ResponseEntity<List<Dish>> getAllDishes(
             @RequestParam(required = false) String query,
             @RequestParam(required = false) DietType type) {
@@ -24,19 +24,19 @@ public class DishController {
         return ResponseEntity.ok(dishRepository.findAll());
     }
     
-    @GetMapping("/{id}")
+    @GetMapping("/dishes/{id}")
     public ResponseEntity<Dish> getDishById(@PathVariable Long id) {
         return dishRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
     
-    @GetMapping("/by-type/{type}")
+    @GetMapping("/dishes/by-type/{type}")
     public ResponseEntity<List<Dish>> getDishesByType(@PathVariable DietType type) {
         return ResponseEntity.ok(dishRepository.findByType(type));
     }
     
-    @GetMapping("/by-tags")
+    @GetMapping("/dishes/by-tags")
     public ResponseEntity<List<Dish>> getDishesByTags(@RequestParam List<String> tags) {
         return ResponseEntity.ok(dishRepository.findByTags(tags));
     }
