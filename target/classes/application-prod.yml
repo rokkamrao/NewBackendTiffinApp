@@ -121,7 +121,7 @@ info:
     name: Tiffin API
     description: Food delivery and subscription platform API - Production
     version: '0.0.1-SNAPSHOT'
-    build-time: '2025-11-16T06:11:41Z'
+    build-time: '2025-11-16T06:30:31Z'
     java-version: '21.0.8'
     profile: production
 

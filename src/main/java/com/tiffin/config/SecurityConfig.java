@@ -91,7 +91,10 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:4200",    // Angular dev server
             "http://localhost:3000",    // React dev server (if needed)
-            "https://yourdomain.com"    // Production domain
+            "https://yourdomain.com",   // Production domain
+            "https://tiffin-3i6e6ma5u-mohits-projects-d8cba204.vercel.app",  // Vercel frontend
+            "https://*.vercel.app",     // All Vercel domains
+            "https://*.railway.app"     // All Railway domains
         ));
         
         // Allow common HTTP methods
