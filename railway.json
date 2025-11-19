@@ -1,0 +1,13 @@
+{
+  "name": "stellar-radiance",
+  "services": {
+    "web": {
+      "build": {
+        "builder": "NIXPACKS"
+      },
+      "deploy": {
+        "startCommand": "java -jar target/tiffin-api-0.0.1-SNAPSHOT.jar --server.port=$PORT"
+      }
+    }
+  }
+}
