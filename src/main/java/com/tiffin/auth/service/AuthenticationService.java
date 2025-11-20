@@ -70,7 +70,7 @@ public class AuthenticationService {
      */
     public AuthResponse verifyOtp(String phoneNumber, String otp) {
         try {
-            log.info("Verifying OTP for phone: {} with OTP: {}", phoneNumber, otp);
+            log.info("🔐 Verifying OTP for phone: {} with OTP: {}", phoneNumber, otp);
             
             String otpKey = "otp:" + phoneNumber;
             String storedOtp = otpStore.get(otpKey);
@@ -79,19 +79,24 @@ public class AuthenticationService {
             // Development mode: Accept "123456" as universal OTP for testing
             boolean isDevelopmentOtp = "123456".equals(otp);
             
+            log.info("🔍 OTP Check - Phone: {}, Received: {}, Stored: {}, IsDev: {}", phoneNumber, otp, storedOtp, isDevelopmentOtp);
+            
             if (isDevelopmentOtp) {
-                log.info("🚀 Development OTP used: 123456 - bypassing normal verification");
+                log.info("🚀 DEVELOPMENT OTP BYPASS: 123456 used - allowing authentication");
             } else {
                 // Check if OTP exists and is not expired
                 if (storedOtp == null || expiry == null || LocalDateTime.now().isAfter(expiry)) {
+                    log.warn("❌ OTP expired or invalid - Phone: {}, StoredOtp: {}, Expiry: {}", phoneNumber, storedOtp, expiry);
                     return AuthResponse.error("OTP expired or invalid");
                 }
                 
                 // Verify OTP
                 if (!storedOtp.equals(otp)) {
-                    log.warn("OTP verification failed. Expected: {}, Received: {}", storedOtp, otp);
+                    log.warn("❌ OTP mismatch - Phone: {}, Expected: {}, Received: {}", phoneNumber, storedOtp, otp);
                     return AuthResponse.error("Invalid OTP");
                 }
+                
+                log.info("✅ OTP verified successfully - Phone: {}", phoneNumber);
             }
             
             // Clear OTP from store (unless it's development OTP)
