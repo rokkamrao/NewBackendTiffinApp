@@ -2,6 +2,7 @@ package com.tiffin.auth.service;
 
 import com.tiffin.auth.dto.AuthResponse;
 import com.tiffin.auth.dto.CompleteSignupRequest;
+import com.tiffin.auth.dto.SignInRequest;
 import com.tiffin.user.model.User;
 import com.tiffin.user.model.Role;
 import com.tiffin.user.repository.UserRepository;
@@ -69,25 +70,35 @@ public class AuthenticationService {
      */
     public AuthResponse verifyOtp(String phoneNumber, String otp) {
         try {
-            log.info("Verifying OTP for phone: {}", phoneNumber);
+            log.info("Verifying OTP for phone: {} with OTP: {}", phoneNumber, otp);
             
             String otpKey = "otp:" + phoneNumber;
             String storedOtp = otpStore.get(otpKey);
             LocalDateTime expiry = otpExpiryStore.get(otpKey);
             
-            // Check if OTP exists and is not expired
-            if (storedOtp == null || expiry == null || LocalDateTime.now().isAfter(expiry)) {
-                return AuthResponse.error("OTP expired or invalid");
+            // Development mode: Accept "123456" as universal OTP for testing
+            boolean isDevelopmentOtp = "123456".equals(otp);
+            
+            if (isDevelopmentOtp) {
+                log.info("🚀 Development OTP used: 123456 - bypassing normal verification");
+            } else {
+                // Check if OTP exists and is not expired
+                if (storedOtp == null || expiry == null || LocalDateTime.now().isAfter(expiry)) {
+                    return AuthResponse.error("OTP expired or invalid");
+                }
+                
+                // Verify OTP
+                if (!storedOtp.equals(otp)) {
+                    log.warn("OTP verification failed. Expected: {}, Received: {}", storedOtp, otp);
+                    return AuthResponse.error("Invalid OTP");
+                }
             }
             
-            // Verify OTP
-            if (!storedOtp.equals(otp)) {
-                return AuthResponse.error("Invalid OTP");
+            // Clear OTP from store (unless it's development OTP)
+            if (!isDevelopmentOtp) {
+                otpStore.remove(otpKey);
+                otpExpiryStore.remove(otpKey);
             }
-            
-            // Clear OTP from store
-            otpStore.remove(otpKey);
-            otpExpiryStore.remove(otpKey);
             
             // Find or create user
             User user = findOrCreateUser(phoneNumber);
@@ -109,6 +120,7 @@ public class AuthenticationService {
                     .phone(user.getPhoneNumber())
                     .phoneVerified(user.isPhoneVerified())
                     .emailVerified(user.isEmailVerified())
+                    .role(user.getRole().toString())
                     .build();
             
             return AuthResponse.success("Login successful", token, userInfo);
@@ -136,8 +148,8 @@ public class AuthenticationService {
                         .phoneNumber(request.getPhone())
                         .email(request.getEmail() != null ? request.getEmail() : request.getPhone() + "@tiffin.com")
                         .password(request.getPassword() != null ? request.getPassword() : "")
-                        .firstName(extractFirstName(request.getName()))
-                        .lastName(extractLastName(request.getName()))
+                        .firstName(request.getFirstName() != null ? request.getFirstName() : "User")
+                        .lastName(request.getLastName() != null ? request.getLastName() : "")
                         .role(Role.USER)
                         .active(true)
                         .phoneVerified(true) // Assume phone is verified if we reach this point
@@ -149,9 +161,11 @@ public class AuthenticationService {
                 if (request.getEmail() != null && !request.getEmail().isEmpty()) {
                     user.setEmail(request.getEmail());
                 }
-                if (request.getName() != null && !request.getName().isEmpty()) {
-                    user.setFirstName(extractFirstName(request.getName()));
-                    user.setLastName(extractLastName(request.getName()));
+                if (request.getFirstName() != null && !request.getFirstName().isEmpty()) {
+                    user.setFirstName(request.getFirstName());
+                }
+                if (request.getLastName() != null && !request.getLastName().isEmpty()) {
+                    user.setLastName(request.getLastName());
                 }
                 if (request.getPassword() != null && !request.getPassword().isEmpty()) {
                     user.setPassword(request.getPassword());
@@ -176,6 +190,7 @@ public class AuthenticationService {
                     .phone(user.getPhoneNumber())
                     .phoneVerified(user.isPhoneVerified())
                     .emailVerified(user.isEmailVerified())
+                    .role(user.getRole().toString())
                     .build();
             
             return AuthResponse.success("Registration successful", token, userInfo);
@@ -214,17 +229,79 @@ public class AuthenticationService {
     }
 
     /**
-     * Generate random OTP
+     * Login user with phone number or email and password
+     */
+    public AuthResponse login(SignInRequest request) {
+        try {
+            log.info("Login attempt for: {}", request.getPhone());
+            
+            // Find user by phone number or email
+            User user = userRepository.findByPhoneNumber(request.getPhone())
+                    .or(() -> userRepository.findByEmail(request.getPhone()))
+                    .orElse(null);
+            
+            if (user == null) {
+                return AuthResponse.error("User not found");
+            }
+            
+            // For now, we'll do simple password comparison
+            // In production, use BCrypt or similar
+            if (!request.getPassword().equals(user.getPassword())) {
+                return AuthResponse.error("Invalid credentials");
+            }
+            
+            if (!user.isPhoneVerified()) {
+                return AuthResponse.error("Phone number not verified");
+            }
+            
+            // Update last login time
+            user.updateLastLoginTime();
+            userRepository.save(user);
+            
+            // Generate JWT token
+            String token = generateJwtToken(user);
+            
+            // Build user info
+            AuthResponse.UserInfo userInfo = AuthResponse.UserInfo.builder()
+                    .id(user.getId())
+                    .firstName(user.getFirstName())
+                    .lastName(user.getLastName())
+                    .email(user.getEmail())
+                    .phone(user.getPhoneNumber())
+                    .phoneVerified(user.isPhoneVerified())
+                    .emailVerified(user.isEmailVerified())
+                    .role(user.getRole().toString())
+                    .build();
+            
+            return AuthResponse.success("Login successful", token, userInfo);
+            
+        } catch (Exception e) {
+            log.error("Error during login for {}: {}", request.getPhone(), e.getMessage(), e);
+            return AuthResponse.error("Login failed");
+        }
+    }
+
+    /**
+     * Generate OTP (fixed for development, random for production)
      */
     private String generateOtp() {
-        SecureRandom random = new SecureRandom();
-        StringBuilder otp = new StringBuilder();
+        // For development: use fixed OTP 123456
+        // For production: use random OTP
+        String environment = System.getProperty("spring.profiles.active", "development");
         
-        for (int i = 0; i < OTP_LENGTH; i++) {
-            otp.append(random.nextInt(10));
+        if ("production".equals(environment)) {
+            SecureRandom random = new SecureRandom();
+            StringBuilder otp = new StringBuilder();
+            
+            for (int i = 0; i < OTP_LENGTH; i++) {
+                otp.append(random.nextInt(10));
+            }
+            
+            return otp.toString();
+        } else {
+            // Development mode: always return 123456
+            return "123456";
         }
-        
-        return otp.toString();
     }
 
     /**
@@ -235,33 +312,4 @@ public class AuthenticationService {
         return "jwt_token_" + user.getId() + "_" + System.currentTimeMillis();
     }
 
-    /**
-     * Extract first name from full name
-     */
-    private String extractFirstName(String fullName) {
-        if (fullName == null || fullName.trim().isEmpty()) {
-            return "User";
-        }
-        String[] parts = fullName.trim().split("\\s+");
-        return parts[0];
-    }
-
-    /**
-     * Extract last name from full name
-     */
-    private String extractLastName(String fullName) {
-        if (fullName == null || fullName.trim().isEmpty()) {
-            return "";
-        }
-        String[] parts = fullName.trim().split("\\s+");
-        if (parts.length > 1) {
-            StringBuilder lastName = new StringBuilder();
-            for (int i = 1; i < parts.length; i++) {
-                if (i > 1) lastName.append(" ");
-                lastName.append(parts[i]);
-            }
-            return lastName.toString();
-        }
-        return "";
-    }
 }

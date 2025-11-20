@@ -1,0 +1,13 @@
+# Railway ignore file
+node_modules/
+*.log
+target/
+.git/
+.gitignore
+README.md
+.env.local
+.env.development
+logs/
+*.md
+.DS_Store
+Thumbs.db

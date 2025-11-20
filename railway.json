@@ -1,13 +1,12 @@
 {
-  "name": "stellar-radiance",
-  "services": {
-    "web": {
-      "build": {
-        "builder": "NIXPACKS"
-      },
-      "deploy": {
-        "startCommand": "java -jar target/tiffin-api-0.0.1-SNAPSHOT.jar --server.port=$PORT"
-      }
-    }
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "java -jar -Dspring.profiles.active=prod -Dserver.port=$PORT target/tiffin-api-0.0.1-SNAPSHOT.jar",
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 300,
+    "restartPolicyType": "ON_FAILURE"
   }
 }

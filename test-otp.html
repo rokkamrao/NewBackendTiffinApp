@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Test</title>
+</head>
+<body>
+    <h1>TiffinApp OTP Test</h1>
+    
+    <div>
+        <h3>Send OTP</h3>
+        <input type="text" id="phone" placeholder="Phone number" value="1234567890">
+        <button onclick="sendOtp()">Send OTP</button>
+        <div id="sendResult"></div>
+    </div>
+    
+    <div>
+        <h3>Verify OTP</h3>
+        <input type="text" id="verifyPhone" placeholder="Phone number" value="1234567890">
+        <input type="text" id="otp" placeholder="OTP" value="123456">
+        <button onclick="verifyOtp()">Verify OTP</button>
+        <div id="verifyResult"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8081/api';
+        
+        async function sendOtp() {
+            const phone = document.getElementById('phone').value;
+            const resultDiv = document.getElementById('sendResult');
+            
+            try {
+                const response = await fetch(`${API_BASE}/auth/send-otp`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ phone: phone })
+                });
+                
+                const result = await response.json();
+                resultDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                console.log('Send OTP result:', result);
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                console.error('Send OTP error:', error);
+            }
+        }
+        
+        async function verifyOtp() {
+            const phone = document.getElementById('verifyPhone').value;
+            const otp = document.getElementById('otp').value;
+            const resultDiv = document.getElementById('verifyResult');
+            
+            try {
+                const response = await fetch(`${API_BASE}/auth/verify-otp`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ phone: phone, otp: otp })
+                });
+                
+                const result = await response.json();
+                resultDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                console.log('Verify OTP result:', result);
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+                console.error('Verify OTP error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

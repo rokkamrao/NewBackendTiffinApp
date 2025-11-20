@@ -1,0 +1,4612 @@
+2025-11-14 10:24:29,062 INFO  [background-preinit] [trace=] [user=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-11-14 10:24:29,171 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Starting TiffinApiApplication using Java 21.0.9 with PID 8440 (D:\Food Delivery app\tiffin-api\target\classes started by Tamoghna in D:\Food Delivery app\tiffin-api)
+2025-11-14 10:24:29,172 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 10:24:29,948 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-14 10:24:30,043 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 98 ms. Found 15 JPA repository interfaces.
+2025-11-14 10:24:30,477 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-11-14 10:24:30,477 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-11-14 10:24:30,492 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 10:24:30,493 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-14 10:24:30,545 INFO  [main] [trace=] [user=] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-11-14 10:24:30,545 INFO  [main] [trace=] [user=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1316 ms
+2025-11-14 10:24:30,667 INFO  [main] [trace=] [user=] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-14 10:24:30,721 INFO  [main] [trace=] [user=] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-11-14 10:24:30,750 INFO  [main] [trace=] [user=] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-14 10:24:30,955 INFO  [main] [trace=] [user=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-14 10:24:30,977 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Starting...
+2025-11-14 10:24:31,117 INFO  [main] [trace=] [user=] com.zaxxer.hikari.pool.HikariPool - TiffinHikariCP - Added connection org.postgresql.jdbc.PgConnection@62158991
+2025-11-14 10:24:31,118 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Start completed.
+2025-11-14 10:24:31,204 INFO  [main] [trace=] [user=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (TiffinHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-14 10:24:32,347 INFO  [main] [trace=] [user=] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-14 10:24:32,364 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-11-14 10:24:32,366 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       drop constraint if exists "FK1o3cf1oq29twu2e49lxh6u8pg"
+2025-11-14 10:24:32,381 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       drop constraint if exists "FKkcjtpklna4ym5c19ym2pmjkuq"
+2025-11-14 10:24:32,384 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       drop constraint if exists "FK8fenw11chwbd31jgayrx86vll"
+2025-11-14 10:24:32,385 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       drop constraint if exists "FKsny3a8mx1j0x10oy32nbv53x0"
+2025-11-14 10:24:32,387 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FKrnpho6nwth59gol8v9lyjb9sj"
+2025-11-14 10:24:32,389 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FK6gg8woymk43fp55jtjlgkd1eh"
+2025-11-14 10:24:32,390 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FK35r28bu0fnis2c0ed2pels2mb"
+2025-11-14 10:24:32,392 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FKitd0598xtxfyrro0df4ey8kdd"
+2025-11-14 10:24:32,393 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       drop constraint if exists "FK67d4njd6wxctoxt50x2j2ueyh"
+2025-11-14 10:24:32,394 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "addresses" cascade
+2025-11-14 10:24:32,410 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "customer_testimonials" cascade
+2025-11-14 10:24:32,417 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_dietary_tags" cascade
+2025-11-14 10:24:32,419 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_tags" cascade
+2025-11-14 10:24:32,422 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dishes" cascade
+2025-11-14 10:24:32,429 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "featured_dishes" cascade
+2025-11-14 10:24:32,435 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "landing_analytics" cascade
+2025-11-14 10:24:32,441 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_points" cascade
+2025-11-14 10:24:32,446 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_transactions" cascade
+2025-11-14 10:24:32,454 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plan_features" cascade
+2025-11-14 10:24:32,461 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plans" cascade
+2025-11-14 10:24:32,476 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "newsletter_subscriptions" cascade
+2025-11-14 10:24:32,487 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "notifications" cascade
+2025-11-14 10:24:32,495 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "order_items" cascade
+2025-11-14 10:24:32,502 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "orders" cascade
+2025-11-14 10:24:32,507 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "payments" cascade
+2025-11-14 10:24:32,511 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "reviews" cascade
+2025-11-14 10:24:32,519 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "uploaded_images" cascade
+2025-11-14 10:24:32,527 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "user_memberships" cascade
+2025-11-14 10:24:32,533 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "users" cascade
+2025-11-14 10:24:32,555 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "addresses" (
+        "active" boolean not null,
+        "isDefault" boolean not null,
+        "latitude" float(53),
+        "longitude" float(53),
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "user_id" bigint not null,
+        "zipCode" varchar(20) not null,
+        "apartment" varchar(100),
+        "city" varchar(100) not null,
+        "country" varchar(100) not null,
+        "label" varchar(100) not null,
+        "state" varchar(100) not null,
+        "deliveryInstructions" varchar(500),
+        "landmark" varchar(500),
+        "street" varchar(255) not null,
+        primary key ("id")
+    )
+2025-11-14 10:24:32,577 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "customer_testimonials" (
+        "display_order" integer,
+        "is_approved" boolean,
+        "is_featured" boolean,
+        "is_verified" boolean,
+        "rating" integer not null check (("rating"<=5) and ("rating">=1)),
+        "approved_at" timestamp(6),
+        "created_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "user_id" bigint,
+        "comment" varchar(1000) not null,
+        "avatar_emoji" varchar(255),
+        "customer_image_url" varchar(255),
+        "customer_name" varchar(255) not null,
+        "location" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,586 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_dietary_tags" (
+        "dish_id" bigint not null,
+        "dietary_tag" varchar(255)
+    )
+2025-11-14 10:24:32,588 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_tags" (
+        "dish_id" bigint not null,
+        "tag" varchar(255)
+    )
+2025-11-14 10:24:32,591 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dishes" (
+        "available" boolean,
+        "calories" integer,
+        "preparationTime" integer,
+        "price" numeric(38,2) not null,
+        "rating" float(53),
+        "reviewCount" integer,
+        "spicyLevel" integer,
+        "id" bigint generated by default as identity,
+        "cuisine" varchar(255),
+        "description" varchar(255),
+        "imageUrl" varchar(255),
+        "name" varchar(255) not null,
+        "type" varchar(255) not null check ("type" in ('VEG','NON_VEG')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,601 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "featured_dishes" (
+        "average_rating" numeric(2,1),
+        "calories_per_serving" integer,
+        "discounted_price" numeric(8,2),
+        "display_order" integer,
+        "is_available" boolean not null,
+        "is_featured" boolean not null,
+        "is_gluten_free" boolean not null,
+        "is_popular" boolean not null,
+        "is_vegan" boolean not null,
+        "is_vegetarian" boolean not null,
+        "preparation_time_minutes" integer,
+        "price" numeric(8,2) not null,
+        "total_reviews" integer not null,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "category" varchar(255),
+        "cuisine_type" varchar(255),
+        "description" "text",
+        "dish_name" varchar(255) not null,
+        "image_url" varchar(255),
+        "ingredients" "text",
+        "nutritional_info" "text",
+        "short_description" varchar(255),
+        "spice_level" varchar(255),
+        "tags" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,608 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "landing_analytics" (
+        "click_x" integer,
+        "click_y" integer,
+        "latitude" float(53),
+        "longitude" float(53),
+        "scroll_percentage" integer,
+        "time_on_page_seconds" integer,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "user_id" bigint,
+        "additional_data" "text",
+        "browser_name" varchar(255),
+        "browser_version" varchar(255),
+        "city" varchar(255),
+        "country" varchar(255),
+        "device_type" varchar(255),
+        "element_id" varchar(255),
+        "element_text" varchar(255),
+        "event_category" varchar(255),
+        "event_type" varchar(255) not null,
+        "form_data" "text",
+        "ip_address" varchar(255),
+        "operating_system" varchar(255),
+        "page_section" varchar(255),
+        "referrer" varchar(255),
+        "region" varchar(255),
+        "screen_resolution" varchar(255),
+        "session_id" varchar(255),
+        "user_agent" "text",
+        "utm_campaign" varchar(255),
+        "utm_content" varchar(255),
+        "utm_medium" varchar(255),
+        "utm_source" varchar(255),
+        "utm_term" varchar(255),
+        "viewport_size" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,615 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_points" (
+        "availablePoints" integer not null,
+        "expiredPoints" integer not null,
+        "lifetimeEarned" integer not null,
+        "totalPoints" integer not null,
+        "usedPoints" integer not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextTierDate" timestamp(6),
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "tier" varchar(255) not null check ("tier" in ('BRONZE','SILVER','GOLD','PLATINUM','DIAMOND')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,621 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_transactions" (
+        "points" integer not null,
+        "createdAt" timestamp(6) not null,
+        "expiryDate" timestamp(6),
+        "id" bigint generated by default as identity,
+        "orderId" bigint,
+        "userId" bigint not null,
+        "description" varchar(255),
+        "referenceId" varchar(255),
+        "type" varchar(255) not null check ("type" in ('EARNED_ORDER','EARNED_REFERRAL','EARNED_BONUS','EARNED_REVIEW','REDEEMED_DISCOUNT','REDEEMED_DELIVERY','EXPIRED','ADJUSTMENT')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,628 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plan_features" (
+        "plan_id" bigint not null,
+        "feature" varchar(255)
+    )
+2025-11-14 10:24:32,631 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plans" (
+        "deliveryDiscount" numeric(5,2),
+        "earlyAccess" boolean not null,
+        "exclusiveDeals" boolean not null,
+        "foodDiscount" numeric(5,2),
+        "freeDelivery" boolean not null,
+        "isActive" boolean not null,
+        "isFeatured" boolean not null,
+        "loyaltyBonusMultiplier" boolean not null,
+        "loyaltyMultiplier" numeric(3,2),
+        "maxCancellations" integer,
+        "maxDeliveries" integer not null,
+        "maxOrders" integer not null,
+        "monthlyPrice" numeric(10,2) not null,
+        "priorityDeliveryMinutes" integer,
+        "prioritySupport" boolean not null,
+        "yearlyDiscount" numeric(5,2),
+        "yearlyPrice" numeric(10,2) not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "color" varchar(255),
+        "description" "text",
+        "displayName" varchar(255) not null,
+        "iconUrl" varchar(255),
+        "name" varchar(255) not null unique,
+        "tier" varchar(255) not null check ("tier" in ('FREE','BASIC','PREMIUM','VIP','ENTERPRISE')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,639 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "newsletter_subscriptions" (
+        "is_active" boolean,
+        "id" bigint generated by default as identity,
+        "subscribed_at" timestamp(6) not null,
+        "email" varchar(255) not null unique,
+        "ip_address" varchar(255),
+        "source" varchar(255),
+        "user_agent" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,649 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "notifications" (
+        "read_status" boolean not null,
+        "created_at" timestamp(6) not null,
+        "delivery_id" bigint,
+        "expires_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "read_at" timestamp(6),
+        "user_id" bigint not null,
+        "title" varchar(200) not null,
+        "message" "text" not null,
+        "metadata" "text",
+        "priority" varchar(255) not null check ("priority" in ('LOW','NORMAL','HIGH','URGENT')),
+        "type" varchar(255) not null check ("type" in ('ORDER_PLACED','ORDER_CONFIRMED','ORDER_PREPARING','ORDER_READY','ORDER_PICKED_UP','ORDER_OUT_FOR_DELIVERY','ORDER_DELIVERED','ORDER_CANCELLED','PAYMENT_SUCCESS','PAYMENT_FAILED','PAYMENT_REFUND','DELIVERY_LOCATION_UPDATE','DELIVERY_DELAY','DELIVERY_PARTNER_ASSIGNED','PROMOTION','DISCOUNT_AVAILABLE','SYSTEM_ANNOUNCEMENT','MAINTENANCE_SCHEDULED','SUBSCRIPTION_REMINDER','SUBSCRIPTION_EXPIRED','LOYALTY_POINTS_EARNED','LOYALTY_REWARD_AVAILABLE','REVIEW_REQUEST','CHAT_MESSAGE','FRIEND_RECOMMENDATION','SECURITY_ALERT','LOGIN_ALERT','PASSWORD_CHANGED','PROFILE_UPDATED','NEW_ORDER_RESTAURANT','ORDER_CANCELLED_RESTAURANT','MENU_UPDATE_APPROVED','DELIVERY_REQUEST','DELIVERY_COMPLETED','EARNINGS_UPDATE')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,657 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "order_items" (
+        "quantity" integer not null,
+        "totalPrice" numeric(38,2) not null,
+        "unitPrice" numeric(38,2) not null,
+        "dish_id" bigint not null,
+        "id" bigint generated by default as identity,
+        "order_id" bigint not null,
+        primary key ("id")
+    )
+2025-11-14 10:24:32,664 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "orders" (
+        "totalAmount" numeric(38,2) not null,
+        "createdAt" timestamp(6) not null,
+        "deliveryTime" timestamp(6),
+        "delivery_address_id" bigint,
+        "id" bigint generated by default as identity,
+        "orderTime" timestamp(6) not null,
+        "user_id" bigint,
+        "paymentId" varchar(255),
+        "paymentMethod" varchar(255) not null check ("paymentMethod" in ('UPI','CARD','WALLET','COD')),
+        "paymentStatus" varchar(255) not null,
+        "specialInstructions" varchar(255),
+        "status" varchar(255) not null check ("status" in ('PENDING','CONFIRMED','PREPARING','OUT_FOR_DELIVERY','DELIVERED','CANCELLED')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,672 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "payments" (
+        "amount" numeric(38,2),
+        "createdAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "currency" varchar(255),
+        "failureReason" varchar(255),
+        "id" varchar(255) not null,
+        "orderId" varchar(255),
+        "paymentMethod" varchar(255),
+        "paymentMethodDetails" varchar(255),
+        "receiptUrl" varchar(255),
+        "status" varchar(255),
+        "transactionId" varchar(255),
+        "userId" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,676 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "reviews" (
+        "isVerifiedOrder" boolean not null,
+        "rating" integer not null,
+        "createdAt" timestamp(6),
+        "dishId" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "comment" varchar(255),
+        "userId" varchar(255),
+        "userName" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,682 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "uploaded_images" (
+        "fileSize" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "uploadedAt" timestamp(6),
+        "category" varchar(50) not null,
+        "contentType" varchar(100),
+        "image_id" varchar(100) not null,
+        "filename" varchar(255) not null,
+        "fileData" "bytea",
+        primary key ("id"),
+        unique ("category", "image_id")
+    )
+2025-11-14 10:24:32,689 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "user_memberships" (
+        "autoRenewal" boolean not null,
+        "cancellationsUsed" integer not null,
+        "deliveriesUsed" integer not null,
+        "discountAmount" numeric(10,2),
+        "ordersUsed" integer not null,
+        "paidAmount" numeric(10,2) not null,
+        "totalSavings" numeric(12,2) not null,
+        "cancelledAt" timestamp(6),
+        "createdAt" timestamp(6) not null,
+        "endDate" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextBillingDate" timestamp(6),
+        "plan_id" bigint not null,
+        "startDate" timestamp(6) not null,
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "billingCycle" varchar(255) not null check ("billingCycle" in ('MONTHLY','YEARLY')),
+        "cancellationReason" varchar(255),
+        "paymentTransactionId" varchar(255),
+        "promoCode" varchar(255),
+        "status" varchar(255) not null check ("status" in ('ACTIVE','EXPIRED','CANCELLED','SUSPENDED','PENDING_PAYMENT','TRIAL')),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,697 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "users" (
+        "active" boolean,
+        "emailVerified" boolean,
+        "phoneVerified" boolean,
+        "createdAt" timestamp(6),
+        "id" bigint generated by default as identity,
+        "lastLoginAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "preferredLanguage" varchar(10),
+        "phoneNumber" varchar(15) unique,
+        "role" varchar(20) not null check ("role" in ('USER','PREMIUM_USER','DELIVERY_PERSON','RESTAURANT_PARTNER','ADMIN','SUPER_ADMIN')),
+        "firstName" varchar(50),
+        "lastName" varchar(50),
+        "email" varchar(100) not null unique,
+        "password" varchar(255) not null,
+        "profileImageUrl" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 10:24:32,706 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_user 
+       on "addresses" ("user_id")
+2025-11-14 10:24:32,709 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_default 
+       on "addresses" ("user_id", "isDefault")
+2025-11-14 10:24:32,712 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_email 
+       on "users" ("email")
+2025-11-14 10:24:32,715 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_phone 
+       on "users" ("phoneNumber")
+2025-11-14 10:24:32,717 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_role 
+       on "users" ("role")
+2025-11-14 10:24:32,720 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       add constraint "FK1o3cf1oq29twu2e49lxh6u8pg" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 10:24:32,729 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       add constraint "FKkcjtpklna4ym5c19ym2pmjkuq" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 10:24:32,732 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       add constraint "FK8fenw11chwbd31jgayrx86vll" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 10:24:32,734 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       add constraint "FKsny3a8mx1j0x10oy32nbv53x0" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 10:24:32,737 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FKrnpho6nwth59gol8v9lyjb9sj" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 10:24:32,740 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FK6gg8woymk43fp55jtjlgkd1eh" 
+       foreign key ("order_id") 
+       references "orders"
+2025-11-14 10:24:32,742 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FK35r28bu0fnis2c0ed2pels2mb" 
+       foreign key ("delivery_address_id") 
+       references "addresses"
+2025-11-14 10:24:32,745 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FKitd0598xtxfyrro0df4ey8kdd" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 10:24:32,746 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       add constraint "FK67d4njd6wxctoxt50x2j2ueyh" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 10:24:32,753 INFO  [main] [trace=] [user=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 10:24:33,087 INFO  [main] [trace=] [user=] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-14 10:24:37,461 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Initializing Razorpay client with key: rzp_****p8IS in test environment
+2025-11-14 10:24:37,462 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay configuration validated successfully
+2025-11-14 10:24:37,685 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Configured Razorpay client timeout: 30000 ms
+2025-11-14 10:24:37,685 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay client initialized successfully
+2025-11-14 10:24:38,226 INFO  [main] [trace=] [user=] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-14 10:24:38,713 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-11-14 10:24:38,714 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4f6bd08f]]
+2025-11-14 10:24:38,715 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-11-14 10:24:38,722 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-11-14 10:24:38,773 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/api'
+2025-11-14 10:24:38,788 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Started TiffinApiApplication in 10.567 seconds (process running for 11.159)
+2025-11-14 10:24:38,967 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:24:39,026 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 🏷️ No logo found, creating default TiffinApp logo...
+2025-11-14 10:24:39,104 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    insert 
+    into
+        "uploaded_images"
+        ("category", "contentType", "fileData", "fileSize", "filename", "image_id", "updatedAt", "uploadedAt") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-14 10:24:39,158 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 📷 Default TiffinApp logo saved to database
+2025-11-14 10:24:39,158 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - ✅ Default logo created successfully!
+2025-11-14 10:25:38,780 INFO  [MessageBroker-1] [trace=] [user=] o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-14 10:30:55,859 INFO  [http-nio-8081-exec-4] [trace=] [user=] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-14 10:30:55,872 INFO  [http-nio-8081-exec-4] [trace=] [user=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-14 10:30:56,007 INFO  [http-nio-8081-exec-4] [trace=] [user=] o.s.web.servlet.DispatcherServlet - Completed initialization in 134 ms
+2025-11-14 10:30:56,450 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:30:56,450 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:30:56,450 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:30:56,450 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:30:56,499 WARN  [http-nio-8081-exec-2] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:31:03,726 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:31:03,799 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:31:03,807 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:31:04,053 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:31:04,061 WARN  [http-nio-8081-exec-7] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:31:13,654 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.auth.controller.AuthController - 📱 POST /api/auth/send-otp - Phone: 9045394959
+2025-11-14 10:31:13,654 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - 📱 Sending OTP to phone: 9045394959
+2025-11-14 10:31:13,654 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Generated DEMO OTP for 9045394959: 123456 (OTP ID: otp_1763096473654)
+2025-11-14 10:31:13,661 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP sent successfully - Phone: 9045394959
+2025-11-14 10:31:19,285 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.auth.controller.AuthController - 🔐 POST /api/auth/verify-otp - Phone: 9045394959
+2025-11-14 10:31:19,286 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Verifying OTP for phone: 9045394959 with OTP: 123456
+2025-11-14 10:31:19,293 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.a.service.AuthenticationService - 🔍 OTP verification: phone match=true, otp match=true, not expired=true
+2025-11-14 10:31:19,322 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        u1_0."id",
+        u1_0."active",
+        u1_0."createdAt",
+        u1_0."email",
+        u1_0."emailVerified",
+        u1_0."firstName",
+        u1_0."lastLoginAt",
+        u1_0."lastName",
+        u1_0."password",
+        u1_0."phoneNumber",
+        u1_0."phoneVerified",
+        u1_0."preferredLanguage",
+        u1_0."profileImageUrl",
+        u1_0."role",
+        u1_0."updatedAt" 
+    from
+        "users" u1_0 
+    where
+        u1_0."phoneNumber"=?
+2025-11-14 10:31:19,356 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.a.service.AuthenticationService - ➕ Creating new user for phone: 9045394959
+2025-11-14 10:31:19,404 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    insert 
+    into
+        "users"
+        ("active", "createdAt", "email", "emailVerified", "firstName", "lastLoginAt", "lastName", "password", "phoneNumber", "phoneVerified", "preferredLanguage", "profileImageUrl", "role", "updatedAt") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-14 10:31:19,453 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.a.service.AuthenticationService - ✓ OTP verification successful for phone: 9045394959, user ID: 1
+2025-11-14 10:31:19,453 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP verification successful - Phone: 9045394959
+2025-11-14 10:31:19,527 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:31:19,527 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:31:45,962 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:31:46,568 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:31:46,619 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:31:46,630 WARN  [http-nio-8081-exec-5] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:31:46,664 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:31:46,664 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:33:22,199 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:33:22,199 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:33:22,990 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:33:23,368 WARN  [http-nio-8081-exec-5] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:33:23,367 WARN  [http-nio-8081-exec-3] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:33:44,271 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:33:44,270 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:33:44,305 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:33:44,305 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:33:44,366 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:33:44,387 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:33:44,421 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:33:44,421 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:33:44,436 WARN  [http-nio-8081-exec-2] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:33:44,442 WARN  [http-nio-8081-exec-9] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:33:59,868 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:33:59,893 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:34:00,039 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:00,051 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:00,052 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:00,095 WARN  [http-nio-8081-exec-4] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:34:01,930 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:01,949 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:02,119 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:02,130 WARN  [http-nio-8081-exec-10] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:34:22,478 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:34:22,522 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:34:22,549 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:22,550 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:23,970 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:24,037 WARN  [http-nio-8081-exec-8] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:34:24,179 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:24,182 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:24,182 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:24,196 WARN  [http-nio-8081-exec-7] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:34:58,954 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:34:59,249 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:34:59,484 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:59,484 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:59,498 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:34:59,498 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:34:59,564 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:59,564 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:34:59,585 WARN  [http-nio-8081-exec-6] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:34:59,585 WARN  [http-nio-8081-exec-8] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:16,662 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:17,495 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:17,798 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:17,874 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:17,897 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:17,897 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:17,960 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:17,960 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:17,985 WARN  [http-nio-8081-exec-3] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:17,986 WARN  [http-nio-8081-exec-2] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:44,616 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:46,079 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:46,079 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:46,104 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:46,127 WARN  [http-nio-8081-exec-4] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:47,568 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:47,693 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:47,697 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:47,705 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:47,715 WARN  [http-nio-8081-exec-9] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:56,110 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:56,128 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:35:56,270 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:56,270 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:56,339 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:56,344 WARN  [http-nio-8081-exec-7] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:35:56,454 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:35:56,454 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:35:56,470 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:35:56,475 WARN  [http-nio-8081-exec-1] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:36:16,101 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:36:16,139 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:36:16,139 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:36:16,142 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:36:16,176 WARN  [http-nio-8081-exec-6] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:36:16,933 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:36:17,186 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:36:17,207 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:36:17,875 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:36:17,886 WARN  [http-nio-8081-exec-4] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:39:15,178 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:39:15,178 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:39:15,222 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:39:15,222 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:39:15,222 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:39:15,322 WARN  [http-nio-8081-exec-2] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:39:15,814 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:39:15,818 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:39:15,959 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:39:15,972 WARN  [http-nio-8081-exec-7] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:40:27,362 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:40:27,442 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:40:27,443 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:40:27,444 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:40:27,496 WARN  [http-nio-8081-exec-1] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:40:39,613 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.auth.controller.AuthController - 📱 POST /api/auth/send-otp - Phone: 9045394959
+2025-11-14 10:40:39,619 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - 📱 Sending OTP to phone: 9045394959
+2025-11-14 10:40:39,625 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Generated DEMO OTP for 9045394959: 123456 (OTP ID: otp_1763097039619)
+2025-11-14 10:40:39,625 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP sent successfully - Phone: 9045394959
+2025-11-14 10:40:44,887 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.auth.controller.AuthController - 🔐 POST /api/auth/verify-otp - Phone: 9045394959
+2025-11-14 10:40:44,889 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Verifying OTP for phone: 9045394959 with OTP: 123456
+2025-11-14 10:40:44,891 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - 🔍 OTP verification: phone match=true, otp match=true, not expired=true
+2025-11-14 10:40:44,965 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        u1_0."id",
+        u1_0."active",
+        u1_0."createdAt",
+        u1_0."email",
+        u1_0."emailVerified",
+        u1_0."firstName",
+        u1_0."lastLoginAt",
+        u1_0."lastName",
+        u1_0."password",
+        u1_0."phoneNumber",
+        u1_0."phoneVerified",
+        u1_0."preferredLanguage",
+        u1_0."profileImageUrl",
+        u1_0."role",
+        u1_0."updatedAt" 
+    from
+        "users" u1_0 
+    where
+        u1_0."phoneNumber"=?
+2025-11-14 10:40:45,188 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - ✓ Existing user found: 1
+2025-11-14 10:40:45,472 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        u1_0."id",
+        u1_0."active",
+        u1_0."createdAt",
+        u1_0."email",
+        u1_0."emailVerified",
+        u1_0."firstName",
+        u1_0."lastLoginAt",
+        u1_0."lastName",
+        u1_0."password",
+        u1_0."phoneNumber",
+        u1_0."phoneVerified",
+        u1_0."preferredLanguage",
+        u1_0."profileImageUrl",
+        u1_0."role",
+        u1_0."updatedAt",
+        a1_0."user_id",
+        a1_0."id",
+        a1_0."active",
+        a1_0."apartment",
+        a1_0."city",
+        a1_0."country",
+        a1_0."createdAt",
+        a1_0."deliveryInstructions",
+        a1_0."isDefault",
+        a1_0."label",
+        a1_0."landmark",
+        a1_0."latitude",
+        a1_0."longitude",
+        a1_0."state",
+        a1_0."street",
+        a1_0."updatedAt",
+        a1_0."zipCode" 
+    from
+        "users" u1_0 
+    left join
+        "addresses" a1_0 
+            on u1_0."id"=a1_0."user_id" 
+    where
+        u1_0."id"=?
+2025-11-14 10:40:45,534 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        o1_0."user_id",
+        o1_0."id",
+        o1_0."createdAt",
+        o1_0."delivery_address_id",
+        o1_0."deliveryTime",
+        o1_0."orderTime",
+        o1_0."paymentId",
+        o1_0."paymentMethod",
+        o1_0."paymentStatus",
+        o1_0."specialInstructions",
+        o1_0."status",
+        o1_0."totalAmount" 
+    from
+        "orders" o1_0 
+    where
+        o1_0."user_id"=?
+2025-11-14 10:40:45,569 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.a.service.AuthenticationService - ✓ OTP verification successful for phone: 9045394959, user ID: 1
+2025-11-14 10:40:45,569 INFO  [http-nio-8081-exec-10] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP verification successful - Phone: 9045394959
+2025-11-14 10:40:45,652 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:40:45,661 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:40:59,394 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:40:59,929 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 10:41:00,000 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 10:41:00,048 WARN  [http-nio-8081-exec-3] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 10:41:00,063 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:41:00,118 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:41:07,078 INFO  [http-nio-8081-exec-2] [trace=] [user=] c.t.auth.controller.AuthController - 📱 POST /api/auth/send-otp - Phone: 9045394959
+2025-11-14 10:41:07,078 INFO  [http-nio-8081-exec-2] [trace=] [user=] c.t.a.service.AuthenticationService - 📱 Sending OTP to phone: 9045394959
+2025-11-14 10:41:07,078 INFO  [http-nio-8081-exec-2] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Generated DEMO OTP for 9045394959: 123456 (OTP ID: otp_1763097067078)
+2025-11-14 10:41:07,086 INFO  [http-nio-8081-exec-2] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP sent successfully - Phone: 9045394959
+2025-11-14 10:41:12,625 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.auth.controller.AuthController - 🔐 POST /api/auth/verify-otp - Phone: 9045394959
+2025-11-14 10:41:12,625 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - 🔐 Verifying OTP for phone: 9045394959 with OTP: 123456
+2025-11-14 10:41:12,629 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - 🔍 OTP verification: phone match=true, otp match=true, not expired=true
+2025-11-14 10:41:12,642 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        u1_0."id",
+        u1_0."active",
+        u1_0."createdAt",
+        u1_0."email",
+        u1_0."emailVerified",
+        u1_0."firstName",
+        u1_0."lastLoginAt",
+        u1_0."lastName",
+        u1_0."password",
+        u1_0."phoneNumber",
+        u1_0."phoneVerified",
+        u1_0."preferredLanguage",
+        u1_0."profileImageUrl",
+        u1_0."role",
+        u1_0."updatedAt" 
+    from
+        "users" u1_0 
+    where
+        u1_0."phoneNumber"=?
+2025-11-14 10:41:12,678 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - ✓ Existing user found: 1
+2025-11-14 10:41:12,692 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        u1_0."id",
+        u1_0."active",
+        u1_0."createdAt",
+        u1_0."email",
+        u1_0."emailVerified",
+        u1_0."firstName",
+        u1_0."lastLoginAt",
+        u1_0."lastName",
+        u1_0."password",
+        u1_0."phoneNumber",
+        u1_0."phoneVerified",
+        u1_0."preferredLanguage",
+        u1_0."profileImageUrl",
+        u1_0."role",
+        u1_0."updatedAt",
+        a1_0."user_id",
+        a1_0."id",
+        a1_0."active",
+        a1_0."apartment",
+        a1_0."city",
+        a1_0."country",
+        a1_0."createdAt",
+        a1_0."deliveryInstructions",
+        a1_0."isDefault",
+        a1_0."label",
+        a1_0."landmark",
+        a1_0."latitude",
+        a1_0."longitude",
+        a1_0."state",
+        a1_0."street",
+        a1_0."updatedAt",
+        a1_0."zipCode" 
+    from
+        "users" u1_0 
+    left join
+        "addresses" a1_0 
+            on u1_0."id"=a1_0."user_id" 
+    where
+        u1_0."id"=?
+2025-11-14 10:41:12,719 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        o1_0."user_id",
+        o1_0."id",
+        o1_0."createdAt",
+        o1_0."delivery_address_id",
+        o1_0."deliveryTime",
+        o1_0."orderTime",
+        o1_0."paymentId",
+        o1_0."paymentMethod",
+        o1_0."paymentStatus",
+        o1_0."specialInstructions",
+        o1_0."status",
+        o1_0."totalAmount" 
+    from
+        "orders" o1_0 
+    where
+        o1_0."user_id"=?
+2025-11-14 10:41:12,733 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.a.service.AuthenticationService - ✓ OTP verification successful for phone: 9045394959, user ID: 1
+2025-11-14 10:41:12,733 INFO  [http-nio-8081-exec-6] [trace=] [user=] c.t.auth.controller.AuthController - ✓ OTP verification successful - Phone: 9045394959
+2025-11-14 10:41:12,772 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 10:41:12,772 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 10:55:38,818 INFO  [MessageBroker-1] [trace=] [user=] o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+2025-11-14 11:19:37,516 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:19:37,549 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:19:37,549 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:20:36,402 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:20:36,434 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:20:36,434 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:20:36,442 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 11:20:36,495 WARN  [http-nio-8081-exec-2] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 11:22:13,930 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:22:13,969 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:22:13,969 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:22:14,132 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 11:22:14,170 WARN  [http-nio-8081-exec-7] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 11:25:38,859 INFO  [MessageBroker-2] [trace=] [user=] o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+2025-11-14 11:49:09,898 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:49:10,304 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:49:10,304 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:49:41,372 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        mp1_0."id",
+        mp1_0."color",
+        mp1_0."createdAt",
+        mp1_0."deliveryDiscount",
+        mp1_0."description",
+        mp1_0."displayName",
+        mp1_0."earlyAccess",
+        mp1_0."exclusiveDeals",
+        mp1_0."foodDiscount",
+        mp1_0."freeDelivery",
+        mp1_0."iconUrl",
+        mp1_0."isActive",
+        mp1_0."isFeatured",
+        mp1_0."loyaltyBonusMultiplier",
+        mp1_0."loyaltyMultiplier",
+        mp1_0."maxCancellations",
+        mp1_0."maxDeliveries",
+        mp1_0."maxOrders",
+        mp1_0."monthlyPrice",
+        mp1_0."name",
+        mp1_0."priorityDeliveryMinutes",
+        mp1_0."prioritySupport",
+        mp1_0."tier",
+        mp1_0."updatedAt",
+        mp1_0."yearlyDiscount",
+        mp1_0."yearlyPrice" 
+    from
+        "membership_plans" mp1_0 
+    where
+        mp1_0."isActive" 
+    order by
+        mp1_0."tier"
+2025-11-14 11:49:54,788 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:49:54,789 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:50:01,062 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:50:03,495 INFO  [http-nio-8081-exec-9] [trace=] [user=] c.t.order.controller.OrderController - Fetching all orders (anonymous user)
+2025-11-14 11:50:03,513 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        o1_0."id",
+        o1_0."createdAt",
+        o1_0."delivery_address_id",
+        o1_0."deliveryTime",
+        o1_0."orderTime",
+        o1_0."paymentId",
+        o1_0."paymentMethod",
+        o1_0."paymentStatus",
+        o1_0."specialInstructions",
+        o1_0."status",
+        o1_0."totalAmount",
+        o1_0."user_id" 
+    from
+        "orders" o1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2025-11-14 11:50:03,537 WARN  [http-nio-8081-exec-9] [trace=] [user=] o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-11-14 11:50:06,823 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-14 11:50:06,833 INFO  [tomcat-shutdown] [trace=] [user=] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-14 11:50:06,844 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-11-14 11:50:06,844 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4f6bd08f]]
+2025-11-14 11:50:06,845 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-11-14 11:50:06,859 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 11:50:06,862 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-11-14 11:50:06,864 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       drop constraint if exists "FK1o3cf1oq29twu2e49lxh6u8pg"
+2025-11-14 11:50:06,883 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       drop constraint if exists "FKkcjtpklna4ym5c19ym2pmjkuq"
+2025-11-14 11:50:06,885 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       drop constraint if exists "FK8fenw11chwbd31jgayrx86vll"
+2025-11-14 11:50:06,886 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       drop constraint if exists "FKsny3a8mx1j0x10oy32nbv53x0"
+2025-11-14 11:50:06,888 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FKrnpho6nwth59gol8v9lyjb9sj"
+2025-11-14 11:50:06,889 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FK6gg8woymk43fp55jtjlgkd1eh"
+2025-11-14 11:50:06,890 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FK35r28bu0fnis2c0ed2pels2mb"
+2025-11-14 11:50:06,892 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FKitd0598xtxfyrro0df4ey8kdd"
+2025-11-14 11:50:06,892 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       drop constraint if exists "FK67d4njd6wxctoxt50x2j2ueyh"
+2025-11-14 11:50:06,893 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "addresses" cascade
+2025-11-14 11:50:06,910 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "customer_testimonials" cascade
+2025-11-14 11:50:06,915 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_dietary_tags" cascade
+2025-11-14 11:50:06,918 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_tags" cascade
+2025-11-14 11:50:06,919 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dishes" cascade
+2025-11-14 11:50:06,922 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "featured_dishes" cascade
+2025-11-14 11:50:06,927 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "landing_analytics" cascade
+2025-11-14 11:50:06,932 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_points" cascade
+2025-11-14 11:50:06,936 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_transactions" cascade
+2025-11-14 11:50:06,940 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plan_features" cascade
+2025-11-14 11:50:06,942 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plans" cascade
+2025-11-14 11:50:06,947 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "newsletter_subscriptions" cascade
+2025-11-14 11:50:06,952 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "notifications" cascade
+2025-11-14 11:50:06,959 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "order_items" cascade
+2025-11-14 11:50:06,963 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "orders" cascade
+2025-11-14 11:50:06,967 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "payments" cascade
+2025-11-14 11:50:06,971 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "reviews" cascade
+2025-11-14 11:50:06,978 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "uploaded_images" cascade
+2025-11-14 11:50:06,983 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "user_memberships" cascade
+2025-11-14 11:50:06,988 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "users" cascade
+2025-11-14 11:50:07,003 INFO  [SpringApplicationShutdownHook] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Shutdown initiated...
+2025-11-14 11:50:07,005 INFO  [SpringApplicationShutdownHook] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Shutdown completed.
+2025-11-14 11:50:23,127 INFO  [background-preinit] [trace=] [user=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-11-14 11:50:23,179 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Starting TiffinApiApplication using Java 21.0.9 with PID 19264 (D:\Food Delivery app\tiffin-api\target\classes started by Tamoghna in D:\Food Delivery app\tiffin-api)
+2025-11-14 11:50:23,181 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 11:50:24,173 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-14 11:50:24,304 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 120 ms. Found 15 JPA repository interfaces.
+2025-11-14 11:50:24,887 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-11-14 11:50:24,904 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-11-14 11:50:24,908 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 11:50:24,908 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-14 11:50:24,983 INFO  [main] [trace=] [user=] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-11-14 11:50:24,984 INFO  [main] [trace=] [user=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1754 ms
+2025-11-14 11:50:25,130 INFO  [main] [trace=] [user=] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-14 11:50:25,177 INFO  [main] [trace=] [user=] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-11-14 11:50:25,215 INFO  [main] [trace=] [user=] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-14 11:50:25,440 INFO  [main] [trace=] [user=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-14 11:50:25,464 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Starting...
+2025-11-14 11:50:25,601 INFO  [main] [trace=] [user=] com.zaxxer.hikari.pool.HikariPool - TiffinHikariCP - Added connection org.postgresql.jdbc.PgConnection@2e0652ab
+2025-11-14 11:50:25,603 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Start completed.
+2025-11-14 11:50:25,677 INFO  [main] [trace=] [user=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (TiffinHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-14 11:50:26,840 INFO  [main] [trace=] [user=] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-14 11:50:26,859 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-11-14 11:50:26,860 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       drop constraint if exists "FK1o3cf1oq29twu2e49lxh6u8pg"
+2025-11-14 11:50:26,864 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       drop constraint if exists "FKkcjtpklna4ym5c19ym2pmjkuq"
+2025-11-14 11:50:26,865 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       drop constraint if exists "FK8fenw11chwbd31jgayrx86vll"
+2025-11-14 11:50:26,866 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       drop constraint if exists "FKsny3a8mx1j0x10oy32nbv53x0"
+2025-11-14 11:50:26,867 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FKrnpho6nwth59gol8v9lyjb9sj"
+2025-11-14 11:50:26,868 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FK6gg8woymk43fp55jtjlgkd1eh"
+2025-11-14 11:50:26,868 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FK35r28bu0fnis2c0ed2pels2mb"
+2025-11-14 11:50:26,871 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FKitd0598xtxfyrro0df4ey8kdd"
+2025-11-14 11:50:26,872 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       drop constraint if exists "FK67d4njd6wxctoxt50x2j2ueyh"
+2025-11-14 11:50:26,874 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "addresses" cascade
+2025-11-14 11:50:26,876 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "customer_testimonials" cascade
+2025-11-14 11:50:26,878 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_dietary_tags" cascade
+2025-11-14 11:50:26,878 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_tags" cascade
+2025-11-14 11:50:26,879 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dishes" cascade
+2025-11-14 11:50:26,879 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "featured_dishes" cascade
+2025-11-14 11:50:26,880 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "landing_analytics" cascade
+2025-11-14 11:50:26,880 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_points" cascade
+2025-11-14 11:50:26,881 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_transactions" cascade
+2025-11-14 11:50:26,881 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plan_features" cascade
+2025-11-14 11:50:26,882 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plans" cascade
+2025-11-14 11:50:26,882 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "newsletter_subscriptions" cascade
+2025-11-14 11:50:26,883 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "notifications" cascade
+2025-11-14 11:50:26,884 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "order_items" cascade
+2025-11-14 11:50:26,885 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "orders" cascade
+2025-11-14 11:50:26,886 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "payments" cascade
+2025-11-14 11:50:26,887 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "reviews" cascade
+2025-11-14 11:50:26,887 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "uploaded_images" cascade
+2025-11-14 11:50:26,888 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "user_memberships" cascade
+2025-11-14 11:50:26,888 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "users" cascade
+2025-11-14 11:50:26,894 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "addresses" (
+        "active" boolean not null,
+        "isDefault" boolean not null,
+        "latitude" float(53),
+        "longitude" float(53),
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "user_id" bigint not null,
+        "zipCode" varchar(20) not null,
+        "apartment" varchar(100),
+        "city" varchar(100) not null,
+        "country" varchar(100) not null,
+        "label" varchar(100) not null,
+        "state" varchar(100) not null,
+        "deliveryInstructions" varchar(500),
+        "landmark" varchar(500),
+        "street" varchar(255) not null,
+        primary key ("id")
+    )
+2025-11-14 11:50:26,926 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "customer_testimonials" (
+        "display_order" integer,
+        "is_approved" boolean,
+        "is_featured" boolean,
+        "is_verified" boolean,
+        "rating" integer not null check (("rating"<=5) and ("rating">=1)),
+        "approved_at" timestamp(6),
+        "created_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "user_id" bigint,
+        "comment" varchar(1000) not null,
+        "avatar_emoji" varchar(255),
+        "customer_image_url" varchar(255),
+        "customer_name" varchar(255) not null,
+        "location" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,938 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_dietary_tags" (
+        "dish_id" bigint not null,
+        "dietary_tag" varchar(255)
+    )
+2025-11-14 11:50:26,943 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_tags" (
+        "dish_id" bigint not null,
+        "tag" varchar(255)
+    )
+2025-11-14 11:50:26,945 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dishes" (
+        "available" boolean,
+        "calories" integer,
+        "preparationTime" integer,
+        "price" numeric(38,2) not null,
+        "rating" float(53),
+        "reviewCount" integer,
+        "spicyLevel" integer,
+        "id" bigint generated by default as identity,
+        "cuisine" varchar(255),
+        "description" varchar(255),
+        "imageUrl" varchar(255),
+        "name" varchar(255) not null,
+        "type" varchar(255) not null check ("type" in ('VEG','NON_VEG')),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,953 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "featured_dishes" (
+        "average_rating" numeric(2,1),
+        "calories_per_serving" integer,
+        "discounted_price" numeric(8,2),
+        "display_order" integer,
+        "is_available" boolean not null,
+        "is_featured" boolean not null,
+        "is_gluten_free" boolean not null,
+        "is_popular" boolean not null,
+        "is_vegan" boolean not null,
+        "is_vegetarian" boolean not null,
+        "preparation_time_minutes" integer,
+        "price" numeric(8,2) not null,
+        "total_reviews" integer not null,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "category" varchar(255),
+        "cuisine_type" varchar(255),
+        "description" "text",
+        "dish_name" varchar(255) not null,
+        "image_url" varchar(255),
+        "ingredients" "text",
+        "nutritional_info" "text",
+        "short_description" varchar(255),
+        "spice_level" varchar(255),
+        "tags" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,959 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "landing_analytics" (
+        "click_x" integer,
+        "click_y" integer,
+        "latitude" float(53),
+        "longitude" float(53),
+        "scroll_percentage" integer,
+        "time_on_page_seconds" integer,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "user_id" bigint,
+        "additional_data" "text",
+        "browser_name" varchar(255),
+        "browser_version" varchar(255),
+        "city" varchar(255),
+        "country" varchar(255),
+        "device_type" varchar(255),
+        "element_id" varchar(255),
+        "element_text" varchar(255),
+        "event_category" varchar(255),
+        "event_type" varchar(255) not null,
+        "form_data" "text",
+        "ip_address" varchar(255),
+        "operating_system" varchar(255),
+        "page_section" varchar(255),
+        "referrer" varchar(255),
+        "region" varchar(255),
+        "screen_resolution" varchar(255),
+        "session_id" varchar(255),
+        "user_agent" "text",
+        "utm_campaign" varchar(255),
+        "utm_content" varchar(255),
+        "utm_medium" varchar(255),
+        "utm_source" varchar(255),
+        "utm_term" varchar(255),
+        "viewport_size" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,970 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_points" (
+        "availablePoints" integer not null,
+        "expiredPoints" integer not null,
+        "lifetimeEarned" integer not null,
+        "totalPoints" integer not null,
+        "usedPoints" integer not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextTierDate" timestamp(6),
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "tier" varchar(255) not null check ("tier" in ('BRONZE','SILVER','GOLD','PLATINUM','DIAMOND')),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,975 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_transactions" (
+        "points" integer not null,
+        "createdAt" timestamp(6) not null,
+        "expiryDate" timestamp(6),
+        "id" bigint generated by default as identity,
+        "orderId" bigint,
+        "userId" bigint not null,
+        "description" varchar(255),
+        "referenceId" varchar(255),
+        "type" varchar(255) not null check ("type" in ('EARNED_ORDER','EARNED_REFERRAL','EARNED_BONUS','EARNED_REVIEW','REDEEMED_DISCOUNT','REDEEMED_DELIVERY','EXPIRED','ADJUSTMENT')),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,981 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plan_features" (
+        "plan_id" bigint not null,
+        "feature" varchar(255)
+    )
+2025-11-14 11:50:26,984 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plans" (
+        "deliveryDiscount" numeric(5,2),
+        "earlyAccess" boolean not null,
+        "exclusiveDeals" boolean not null,
+        "foodDiscount" numeric(5,2),
+        "freeDelivery" boolean not null,
+        "isActive" boolean not null,
+        "isFeatured" boolean not null,
+        "loyaltyBonusMultiplier" boolean not null,
+        "loyaltyMultiplier" numeric(3,2),
+        "maxCancellations" integer,
+        "maxDeliveries" integer not null,
+        "maxOrders" integer not null,
+        "monthlyPrice" numeric(10,2) not null,
+        "priorityDeliveryMinutes" integer,
+        "prioritySupport" boolean not null,
+        "yearlyDiscount" numeric(5,2),
+        "yearlyPrice" numeric(10,2) not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "color" varchar(255),
+        "description" "text",
+        "displayName" varchar(255) not null,
+        "iconUrl" varchar(255),
+        "name" varchar(255) not null unique,
+        "tier" varchar(255) not null check ("tier" in ('FREE','BASIC','PREMIUM','VIP','ENTERPRISE')),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,992 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "newsletter_subscriptions" (
+        "is_active" boolean,
+        "id" bigint generated by default as identity,
+        "subscribed_at" timestamp(6) not null,
+        "email" varchar(255) not null unique,
+        "ip_address" varchar(255),
+        "source" varchar(255),
+        "user_agent" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:26,999 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "notifications" (
+        "read_status" boolean not null,
+        "created_at" timestamp(6) not null,
+        "delivery_id" bigint,
+        "expires_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "read_at" timestamp(6),
+        "user_id" bigint not null,
+        "title" varchar(200) not null,
+        "message" "text" not null,
+        "metadata" "text",
+        "priority" varchar(255) not null check ("priority" in ('LOW','NORMAL','HIGH','URGENT')),
+        "type" varchar(255) not null check ("type" in ('ORDER_PLACED','ORDER_CONFIRMED','ORDER_PREPARING','ORDER_READY','ORDER_PICKED_UP','ORDER_OUT_FOR_DELIVERY','ORDER_DELIVERED','ORDER_CANCELLED','PAYMENT_SUCCESS','PAYMENT_FAILED','PAYMENT_REFUND','DELIVERY_LOCATION_UPDATE','DELIVERY_DELAY','DELIVERY_PARTNER_ASSIGNED','PROMOTION','DISCOUNT_AVAILABLE','SYSTEM_ANNOUNCEMENT','MAINTENANCE_SCHEDULED','SUBSCRIPTION_REMINDER','SUBSCRIPTION_EXPIRED','LOYALTY_POINTS_EARNED','LOYALTY_REWARD_AVAILABLE','REVIEW_REQUEST','CHAT_MESSAGE','FRIEND_RECOMMENDATION','SECURITY_ALERT','LOGIN_ALERT','PASSWORD_CHANGED','PROFILE_UPDATED','NEW_ORDER_RESTAURANT','ORDER_CANCELLED_RESTAURANT','MENU_UPDATE_APPROVED','DELIVERY_REQUEST','DELIVERY_COMPLETED','EARNINGS_UPDATE')),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,008 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "order_items" (
+        "quantity" integer not null,
+        "totalPrice" numeric(38,2) not null,
+        "unitPrice" numeric(38,2) not null,
+        "dish_id" bigint not null,
+        "id" bigint generated by default as identity,
+        "order_id" bigint not null,
+        primary key ("id")
+    )
+2025-11-14 11:50:27,014 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "orders" (
+        "totalAmount" numeric(38,2) not null,
+        "createdAt" timestamp(6) not null,
+        "deliveryTime" timestamp(6),
+        "delivery_address_id" bigint,
+        "id" bigint generated by default as identity,
+        "orderTime" timestamp(6) not null,
+        "user_id" bigint,
+        "paymentId" varchar(255),
+        "paymentMethod" varchar(255) not null check ("paymentMethod" in ('UPI','CARD','WALLET','COD')),
+        "paymentStatus" varchar(255) not null,
+        "specialInstructions" varchar(255),
+        "status" varchar(255) not null check ("status" in ('PENDING','CONFIRMED','PREPARING','OUT_FOR_DELIVERY','DELIVERED','CANCELLED')),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,020 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "payments" (
+        "amount" numeric(38,2),
+        "createdAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "currency" varchar(255),
+        "failureReason" varchar(255),
+        "id" varchar(255) not null,
+        "orderId" varchar(255),
+        "paymentMethod" varchar(255),
+        "paymentMethodDetails" varchar(255),
+        "receiptUrl" varchar(255),
+        "status" varchar(255),
+        "transactionId" varchar(255),
+        "userId" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,026 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "reviews" (
+        "isVerifiedOrder" boolean not null,
+        "rating" integer not null,
+        "createdAt" timestamp(6),
+        "dishId" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "comment" varchar(255),
+        "userId" varchar(255),
+        "userName" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,031 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "uploaded_images" (
+        "fileSize" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "uploadedAt" timestamp(6),
+        "category" varchar(50) not null,
+        "contentType" varchar(100),
+        "image_id" varchar(100) not null,
+        "filename" varchar(255) not null,
+        "fileData" "bytea",
+        primary key ("id"),
+        unique ("category", "image_id")
+    )
+2025-11-14 11:50:27,038 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "user_memberships" (
+        "autoRenewal" boolean not null,
+        "cancellationsUsed" integer not null,
+        "deliveriesUsed" integer not null,
+        "discountAmount" numeric(10,2),
+        "ordersUsed" integer not null,
+        "paidAmount" numeric(10,2) not null,
+        "totalSavings" numeric(12,2) not null,
+        "cancelledAt" timestamp(6),
+        "createdAt" timestamp(6) not null,
+        "endDate" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextBillingDate" timestamp(6),
+        "plan_id" bigint not null,
+        "startDate" timestamp(6) not null,
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "billingCycle" varchar(255) not null check ("billingCycle" in ('MONTHLY','YEARLY')),
+        "cancellationReason" varchar(255),
+        "paymentTransactionId" varchar(255),
+        "promoCode" varchar(255),
+        "status" varchar(255) not null check ("status" in ('ACTIVE','EXPIRED','CANCELLED','SUSPENDED','PENDING_PAYMENT','TRIAL')),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,045 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "users" (
+        "active" boolean,
+        "emailVerified" boolean,
+        "phoneVerified" boolean,
+        "createdAt" timestamp(6),
+        "id" bigint generated by default as identity,
+        "lastLoginAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "preferredLanguage" varchar(10),
+        "phoneNumber" varchar(15) unique,
+        "role" varchar(20) not null check ("role" in ('USER','PREMIUM_USER','DELIVERY_PERSON','RESTAURANT_PARTNER','ADMIN','SUPER_ADMIN')),
+        "firstName" varchar(50),
+        "lastName" varchar(50),
+        "email" varchar(100) not null unique,
+        "password" varchar(255) not null,
+        "profileImageUrl" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 11:50:27,058 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_user 
+       on "addresses" ("user_id")
+2025-11-14 11:50:27,061 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_default 
+       on "addresses" ("user_id", "isDefault")
+2025-11-14 11:50:27,063 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_email 
+       on "users" ("email")
+2025-11-14 11:50:27,065 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_phone 
+       on "users" ("phoneNumber")
+2025-11-14 11:50:27,068 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_role 
+       on "users" ("role")
+2025-11-14 11:50:27,070 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       add constraint "FK1o3cf1oq29twu2e49lxh6u8pg" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 11:50:27,084 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       add constraint "FKkcjtpklna4ym5c19ym2pmjkuq" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 11:50:27,088 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       add constraint "FK8fenw11chwbd31jgayrx86vll" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 11:50:27,089 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       add constraint "FKsny3a8mx1j0x10oy32nbv53x0" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 11:50:27,091 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FKrnpho6nwth59gol8v9lyjb9sj" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 11:50:27,094 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FK6gg8woymk43fp55jtjlgkd1eh" 
+       foreign key ("order_id") 
+       references "orders"
+2025-11-14 11:50:27,095 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FK35r28bu0fnis2c0ed2pels2mb" 
+       foreign key ("delivery_address_id") 
+       references "addresses"
+2025-11-14 11:50:27,097 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FKitd0598xtxfyrro0df4ey8kdd" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 11:50:27,098 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       add constraint "FK67d4njd6wxctoxt50x2j2ueyh" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 11:50:27,103 INFO  [main] [trace=] [user=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 11:50:27,378 INFO  [main] [trace=] [user=] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-14 11:50:31,546 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Initializing Razorpay client with key: rzp_****p8IS in test environment
+2025-11-14 11:50:31,546 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay configuration validated successfully
+2025-11-14 11:50:31,692 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Configured Razorpay client timeout: 30000 ms
+2025-11-14 11:50:31,692 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay client initialized successfully
+2025-11-14 11:50:32,107 INFO  [main] [trace=] [user=] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-14 11:50:32,485 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-11-14 11:50:32,486 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7d5689a5]]
+2025-11-14 11:50:32,487 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-11-14 11:50:32,487 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-11-14 11:50:32,519 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/api'
+2025-11-14 11:50:32,526 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Started TiffinApiApplication in 10.149 seconds (process running for 10.634)
+2025-11-14 11:50:32,629 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 11:50:32,656 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 🏷️ No logo found, creating default TiffinApp logo...
+2025-11-14 11:50:32,680 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    insert 
+    into
+        "uploaded_images"
+        ("category", "contentType", "fileData", "fileSize", "filename", "image_id", "updatedAt", "uploadedAt") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-14 11:50:32,707 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 📷 Default TiffinApp logo saved to database
+2025-11-14 11:50:32,707 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - ✅ Default logo created successfully!
+2025-11-14 11:50:51,198 INFO  [http-nio-8081-exec-2] [trace=] [user=] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-14 11:50:51,198 INFO  [http-nio-8081-exec-2] [trace=] [user=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-14 11:50:51,200 INFO  [http-nio-8081-exec-2] [trace=] [user=] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-11-14 11:50:51,244 DEBUG [http-nio-8081-exec-2] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:50:51,245 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:50:51,251 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:50:54,044 DEBUG [http-nio-8081-exec-4] [trace=] [user=] org.hibernate.SQL - 
+    select
+        mp1_0."id",
+        mp1_0."color",
+        mp1_0."createdAt",
+        mp1_0."deliveryDiscount",
+        mp1_0."description",
+        mp1_0."displayName",
+        mp1_0."earlyAccess",
+        mp1_0."exclusiveDeals",
+        mp1_0."foodDiscount",
+        mp1_0."freeDelivery",
+        mp1_0."iconUrl",
+        mp1_0."isActive",
+        mp1_0."isFeatured",
+        mp1_0."loyaltyBonusMultiplier",
+        mp1_0."loyaltyMultiplier",
+        mp1_0."maxCancellations",
+        mp1_0."maxDeliveries",
+        mp1_0."maxOrders",
+        mp1_0."monthlyPrice",
+        mp1_0."name",
+        mp1_0."priorityDeliveryMinutes",
+        mp1_0."prioritySupport",
+        mp1_0."tier",
+        mp1_0."updatedAt",
+        mp1_0."yearlyDiscount",
+        mp1_0."yearlyPrice" 
+    from
+        "membership_plans" mp1_0 
+    where
+        mp1_0."isActive" 
+    order by
+        mp1_0."tier"
+2025-11-14 11:51:32,509 INFO  [MessageBroker-1] [trace=] [user=] o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-11-14 11:55:25,339 DEBUG [http-nio-8081-exec-5] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:55:32,926 DEBUG [http-nio-8081-exec-6] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:55:33,045 DEBUG [http-nio-8081-exec-7] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:55:33,045 DEBUG [http-nio-8081-exec-8] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:57:22,066 DEBUG [http-nio-8081-exec-9] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    order by
+        ui1_0."category",
+        ui1_0."uploadedAt" desc
+2025-11-14 11:57:22,093 DEBUG [http-nio-8081-exec-1] [trace=] [user=] org.hibernate.SQL - 
+    select
+        d1_0."id",
+        d1_0."available",
+        d1_0."calories",
+        d1_0."cuisine",
+        d1_0."description",
+        d1_0."imageUrl",
+        d1_0."name",
+        d1_0."preparationTime",
+        d1_0."price",
+        d1_0."rating",
+        d1_0."reviewCount",
+        d1_0."spicyLevel",
+        d1_0."type" 
+    from
+        "dishes" d1_0
+2025-11-14 11:57:22,093 DEBUG [http-nio-8081-exec-3] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ct1_0."id",
+        ct1_0."approved_at",
+        ct1_0."avatar_emoji",
+        ct1_0."comment",
+        ct1_0."created_at",
+        ct1_0."customer_image_url",
+        ct1_0."customer_name",
+        ct1_0."display_order",
+        ct1_0."is_approved",
+        ct1_0."is_featured",
+        ct1_0."is_verified",
+        ct1_0."location",
+        ct1_0."order_id",
+        ct1_0."rating",
+        ct1_0."user_id" 
+    from
+        "customer_testimonials" ct1_0 
+    where
+        ct1_0."is_approved" 
+    order by
+        ct1_0."display_order",
+        ct1_0."created_at" desc
+2025-11-14 11:57:22,179 DEBUG [http-nio-8081-exec-10] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 11:57:22,188 WARN  [http-nio-8081-exec-10] [trace=] [user=] c.t.s.controller.ImageController - ❌ Image not found: category=branding, imageId=favicon
+2025-11-14 12:04:29,252 INFO  [background-preinit] [trace=] [user=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-11-14 12:04:29,297 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Starting TiffinApiApplication using Java 21.0.9 with PID 26004 (D:\Food Delivery app\tiffin-api\target\classes started by Tamoghna in D:\Food Delivery app\tiffin-api)
+2025-11-14 12:04:29,298 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-14 12:04:30,001 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-14 12:04:30,123 INFO  [main] [trace=] [user=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 113 ms. Found 15 JPA repository interfaces.
+2025-11-14 12:04:30,607 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-11-14 12:04:30,620 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-11-14 12:04:30,623 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-14 12:04:30,623 INFO  [main] [trace=] [user=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-11-14 12:04:30,685 INFO  [main] [trace=] [user=] o.a.c.c.C.[.[localhost].[/api] - Initializing Spring embedded WebApplicationContext
+2025-11-14 12:04:30,686 INFO  [main] [trace=] [user=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1345 ms
+2025-11-14 12:04:30,845 INFO  [main] [trace=] [user=] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-14 12:04:30,917 INFO  [main] [trace=] [user=] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-11-14 12:04:30,953 INFO  [main] [trace=] [user=] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-14 12:04:31,237 INFO  [main] [trace=] [user=] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-14 12:04:31,271 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Starting...
+2025-11-14 12:04:31,425 INFO  [main] [trace=] [user=] com.zaxxer.hikari.pool.HikariPool - TiffinHikariCP - Added connection org.postgresql.jdbc.PgConnection@be616f0
+2025-11-14 12:04:31,425 INFO  [main] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Start completed.
+2025-11-14 12:04:31,505 INFO  [main] [trace=] [user=] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (TiffinHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 18.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-14 12:04:32,730 INFO  [main] [trace=] [user=] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-14 12:04:32,747 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-11-14 12:04:32,749 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       drop constraint if exists "FK1o3cf1oq29twu2e49lxh6u8pg"
+2025-11-14 12:04:32,767 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       drop constraint if exists "FKkcjtpklna4ym5c19ym2pmjkuq"
+2025-11-14 12:04:32,769 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       drop constraint if exists "FK8fenw11chwbd31jgayrx86vll"
+2025-11-14 12:04:32,773 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       drop constraint if exists "FKsny3a8mx1j0x10oy32nbv53x0"
+2025-11-14 12:04:32,775 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FKrnpho6nwth59gol8v9lyjb9sj"
+2025-11-14 12:04:32,781 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FK6gg8woymk43fp55jtjlgkd1eh"
+2025-11-14 12:04:32,783 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FK35r28bu0fnis2c0ed2pels2mb"
+2025-11-14 12:04:32,786 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FKitd0598xtxfyrro0df4ey8kdd"
+2025-11-14 12:04:32,788 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       drop constraint if exists "FK67d4njd6wxctoxt50x2j2ueyh"
+2025-11-14 12:04:32,791 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "addresses" cascade
+2025-11-14 12:04:32,818 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "customer_testimonials" cascade
+2025-11-14 12:04:32,823 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_dietary_tags" cascade
+2025-11-14 12:04:32,824 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_tags" cascade
+2025-11-14 12:04:32,826 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dishes" cascade
+2025-11-14 12:04:32,832 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "featured_dishes" cascade
+2025-11-14 12:04:32,837 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "landing_analytics" cascade
+2025-11-14 12:04:32,844 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_points" cascade
+2025-11-14 12:04:32,850 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_transactions" cascade
+2025-11-14 12:04:32,856 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plan_features" cascade
+2025-11-14 12:04:32,858 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plans" cascade
+2025-11-14 12:04:32,864 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "newsletter_subscriptions" cascade
+2025-11-14 12:04:32,871 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "notifications" cascade
+2025-11-14 12:04:32,877 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "order_items" cascade
+2025-11-14 12:04:32,881 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "orders" cascade
+2025-11-14 12:04:32,886 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "payments" cascade
+2025-11-14 12:04:32,891 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "reviews" cascade
+2025-11-14 12:04:32,897 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "uploaded_images" cascade
+2025-11-14 12:04:32,904 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "user_memberships" cascade
+2025-11-14 12:04:32,908 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "users" cascade
+2025-11-14 12:04:32,922 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "addresses" (
+        "active" boolean not null,
+        "isDefault" boolean not null,
+        "latitude" float(53),
+        "longitude" float(53),
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "user_id" bigint not null,
+        "zipCode" varchar(20) not null,
+        "apartment" varchar(100),
+        "city" varchar(100) not null,
+        "country" varchar(100) not null,
+        "label" varchar(100) not null,
+        "state" varchar(100) not null,
+        "deliveryInstructions" varchar(500),
+        "landmark" varchar(500),
+        "street" varchar(255) not null,
+        primary key ("id")
+    )
+2025-11-14 12:04:32,945 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "customer_testimonials" (
+        "display_order" integer,
+        "is_approved" boolean,
+        "is_featured" boolean,
+        "is_verified" boolean,
+        "rating" integer not null check (("rating"<=5) and ("rating">=1)),
+        "approved_at" timestamp(6),
+        "created_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "user_id" bigint,
+        "comment" varchar(1000) not null,
+        "avatar_emoji" varchar(255),
+        "customer_image_url" varchar(255),
+        "customer_name" varchar(255) not null,
+        "location" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:32,954 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_dietary_tags" (
+        "dish_id" bigint not null,
+        "dietary_tag" varchar(255)
+    )
+2025-11-14 12:04:32,956 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dish_tags" (
+        "dish_id" bigint not null,
+        "tag" varchar(255)
+    )
+2025-11-14 12:04:32,960 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "dishes" (
+        "available" boolean,
+        "calories" integer,
+        "preparationTime" integer,
+        "price" numeric(38,2) not null,
+        "rating" float(53),
+        "reviewCount" integer,
+        "spicyLevel" integer,
+        "id" bigint generated by default as identity,
+        "cuisine" varchar(255),
+        "description" varchar(255),
+        "imageUrl" varchar(255),
+        "name" varchar(255) not null,
+        "type" varchar(255) not null check ("type" in ('VEG','NON_VEG')),
+        primary key ("id")
+    )
+2025-11-14 12:04:32,973 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "featured_dishes" (
+        "average_rating" numeric(2,1),
+        "calories_per_serving" integer,
+        "discounted_price" numeric(8,2),
+        "display_order" integer,
+        "is_available" boolean not null,
+        "is_featured" boolean not null,
+        "is_gluten_free" boolean not null,
+        "is_popular" boolean not null,
+        "is_vegan" boolean not null,
+        "is_vegetarian" boolean not null,
+        "preparation_time_minutes" integer,
+        "price" numeric(8,2) not null,
+        "total_reviews" integer not null,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "category" varchar(255),
+        "cuisine_type" varchar(255),
+        "description" "text",
+        "dish_name" varchar(255) not null,
+        "image_url" varchar(255),
+        "ingredients" "text",
+        "nutritional_info" "text",
+        "short_description" varchar(255),
+        "spice_level" varchar(255),
+        "tags" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:32,983 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "landing_analytics" (
+        "click_x" integer,
+        "click_y" integer,
+        "latitude" float(53),
+        "longitude" float(53),
+        "scroll_percentage" integer,
+        "time_on_page_seconds" integer,
+        "created_at" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updated_at" timestamp(6),
+        "user_id" bigint,
+        "additional_data" "text",
+        "browser_name" varchar(255),
+        "browser_version" varchar(255),
+        "city" varchar(255),
+        "country" varchar(255),
+        "device_type" varchar(255),
+        "element_id" varchar(255),
+        "element_text" varchar(255),
+        "event_category" varchar(255),
+        "event_type" varchar(255) not null,
+        "form_data" "text",
+        "ip_address" varchar(255),
+        "operating_system" varchar(255),
+        "page_section" varchar(255),
+        "referrer" varchar(255),
+        "region" varchar(255),
+        "screen_resolution" varchar(255),
+        "session_id" varchar(255),
+        "user_agent" "text",
+        "utm_campaign" varchar(255),
+        "utm_content" varchar(255),
+        "utm_medium" varchar(255),
+        "utm_source" varchar(255),
+        "utm_term" varchar(255),
+        "viewport_size" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:32,998 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_points" (
+        "availablePoints" integer not null,
+        "expiredPoints" integer not null,
+        "lifetimeEarned" integer not null,
+        "totalPoints" integer not null,
+        "usedPoints" integer not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextTierDate" timestamp(6),
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "tier" varchar(255) not null check ("tier" in ('BRONZE','SILVER','GOLD','PLATINUM','DIAMOND')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,005 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "loyalty_transactions" (
+        "points" integer not null,
+        "createdAt" timestamp(6) not null,
+        "expiryDate" timestamp(6),
+        "id" bigint generated by default as identity,
+        "orderId" bigint,
+        "userId" bigint not null,
+        "description" varchar(255),
+        "referenceId" varchar(255),
+        "type" varchar(255) not null check ("type" in ('EARNED_ORDER','EARNED_REFERRAL','EARNED_BONUS','EARNED_REVIEW','REDEEMED_DISCOUNT','REDEEMED_DELIVERY','EXPIRED','ADJUSTMENT')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,014 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plan_features" (
+        "plan_id" bigint not null,
+        "feature" varchar(255)
+    )
+2025-11-14 12:04:33,017 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "membership_plans" (
+        "deliveryDiscount" numeric(5,2),
+        "earlyAccess" boolean not null,
+        "exclusiveDeals" boolean not null,
+        "foodDiscount" numeric(5,2),
+        "freeDelivery" boolean not null,
+        "isActive" boolean not null,
+        "isFeatured" boolean not null,
+        "loyaltyBonusMultiplier" boolean not null,
+        "loyaltyMultiplier" numeric(3,2),
+        "maxCancellations" integer,
+        "maxDeliveries" integer not null,
+        "maxOrders" integer not null,
+        "monthlyPrice" numeric(10,2) not null,
+        "priorityDeliveryMinutes" integer,
+        "prioritySupport" boolean not null,
+        "yearlyDiscount" numeric(5,2),
+        "yearlyPrice" numeric(10,2) not null,
+        "createdAt" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6) not null,
+        "color" varchar(255),
+        "description" "text",
+        "displayName" varchar(255) not null,
+        "iconUrl" varchar(255),
+        "name" varchar(255) not null unique,
+        "tier" varchar(255) not null check ("tier" in ('FREE','BASIC','PREMIUM','VIP','ENTERPRISE')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,031 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "newsletter_subscriptions" (
+        "is_active" boolean,
+        "id" bigint generated by default as identity,
+        "subscribed_at" timestamp(6) not null,
+        "email" varchar(255) not null unique,
+        "ip_address" varchar(255),
+        "source" varchar(255),
+        "user_agent" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,039 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "notifications" (
+        "read_status" boolean not null,
+        "created_at" timestamp(6) not null,
+        "delivery_id" bigint,
+        "expires_at" timestamp(6),
+        "id" bigint generated by default as identity,
+        "order_id" bigint,
+        "read_at" timestamp(6),
+        "user_id" bigint not null,
+        "title" varchar(200) not null,
+        "message" "text" not null,
+        "metadata" "text",
+        "priority" varchar(255) not null check ("priority" in ('LOW','NORMAL','HIGH','URGENT')),
+        "type" varchar(255) not null check ("type" in ('ORDER_PLACED','ORDER_CONFIRMED','ORDER_PREPARING','ORDER_READY','ORDER_PICKED_UP','ORDER_OUT_FOR_DELIVERY','ORDER_DELIVERED','ORDER_CANCELLED','PAYMENT_SUCCESS','PAYMENT_FAILED','PAYMENT_REFUND','DELIVERY_LOCATION_UPDATE','DELIVERY_DELAY','DELIVERY_PARTNER_ASSIGNED','PROMOTION','DISCOUNT_AVAILABLE','SYSTEM_ANNOUNCEMENT','MAINTENANCE_SCHEDULED','SUBSCRIPTION_REMINDER','SUBSCRIPTION_EXPIRED','LOYALTY_POINTS_EARNED','LOYALTY_REWARD_AVAILABLE','REVIEW_REQUEST','CHAT_MESSAGE','FRIEND_RECOMMENDATION','SECURITY_ALERT','LOGIN_ALERT','PASSWORD_CHANGED','PROFILE_UPDATED','NEW_ORDER_RESTAURANT','ORDER_CANCELLED_RESTAURANT','MENU_UPDATE_APPROVED','DELIVERY_REQUEST','DELIVERY_COMPLETED','EARNINGS_UPDATE')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,047 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "order_items" (
+        "quantity" integer not null,
+        "totalPrice" numeric(38,2) not null,
+        "unitPrice" numeric(38,2) not null,
+        "dish_id" bigint not null,
+        "id" bigint generated by default as identity,
+        "order_id" bigint not null,
+        primary key ("id")
+    )
+2025-11-14 12:04:33,053 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "orders" (
+        "totalAmount" numeric(38,2) not null,
+        "createdAt" timestamp(6) not null,
+        "deliveryTime" timestamp(6),
+        "delivery_address_id" bigint,
+        "id" bigint generated by default as identity,
+        "orderTime" timestamp(6) not null,
+        "user_id" bigint,
+        "paymentId" varchar(255),
+        "paymentMethod" varchar(255) not null check ("paymentMethod" in ('UPI','CARD','WALLET','COD')),
+        "paymentStatus" varchar(255) not null,
+        "specialInstructions" varchar(255),
+        "status" varchar(255) not null check ("status" in ('PENDING','CONFIRMED','PREPARING','OUT_FOR_DELIVERY','DELIVERED','CANCELLED')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,061 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "payments" (
+        "amount" numeric(38,2),
+        "createdAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "currency" varchar(255),
+        "failureReason" varchar(255),
+        "id" varchar(255) not null,
+        "orderId" varchar(255),
+        "paymentMethod" varchar(255),
+        "paymentMethodDetails" varchar(255),
+        "receiptUrl" varchar(255),
+        "status" varchar(255),
+        "transactionId" varchar(255),
+        "userId" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,066 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "reviews" (
+        "isVerifiedOrder" boolean not null,
+        "rating" integer not null,
+        "createdAt" timestamp(6),
+        "dishId" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "comment" varchar(255),
+        "userId" varchar(255),
+        "userName" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,072 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "uploaded_images" (
+        "fileSize" bigint,
+        "id" bigint generated by default as identity,
+        "updatedAt" timestamp(6),
+        "uploadedAt" timestamp(6),
+        "category" varchar(50) not null,
+        "contentType" varchar(100),
+        "image_id" varchar(100) not null,
+        "filename" varchar(255) not null,
+        "fileData" "bytea",
+        primary key ("id"),
+        unique ("category", "image_id")
+    )
+2025-11-14 12:04:33,080 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "user_memberships" (
+        "autoRenewal" boolean not null,
+        "cancellationsUsed" integer not null,
+        "deliveriesUsed" integer not null,
+        "discountAmount" numeric(10,2),
+        "ordersUsed" integer not null,
+        "paidAmount" numeric(10,2) not null,
+        "totalSavings" numeric(12,2) not null,
+        "cancelledAt" timestamp(6),
+        "createdAt" timestamp(6) not null,
+        "endDate" timestamp(6) not null,
+        "id" bigint generated by default as identity,
+        "nextBillingDate" timestamp(6),
+        "plan_id" bigint not null,
+        "startDate" timestamp(6) not null,
+        "updatedAt" timestamp(6) not null,
+        "userId" bigint not null,
+        "billingCycle" varchar(255) not null check ("billingCycle" in ('MONTHLY','YEARLY')),
+        "cancellationReason" varchar(255),
+        "paymentTransactionId" varchar(255),
+        "promoCode" varchar(255),
+        "status" varchar(255) not null check ("status" in ('ACTIVE','EXPIRED','CANCELLED','SUSPENDED','PENDING_PAYMENT','TRIAL')),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,087 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create table "users" (
+        "active" boolean,
+        "emailVerified" boolean,
+        "phoneVerified" boolean,
+        "createdAt" timestamp(6),
+        "id" bigint generated by default as identity,
+        "lastLoginAt" timestamp(6),
+        "updatedAt" timestamp(6),
+        "preferredLanguage" varchar(10),
+        "phoneNumber" varchar(15) unique,
+        "role" varchar(20) not null check ("role" in ('USER','PREMIUM_USER','DELIVERY_PERSON','RESTAURANT_PARTNER','ADMIN','SUPER_ADMIN')),
+        "firstName" varchar(50),
+        "lastName" varchar(50),
+        "email" varchar(100) not null unique,
+        "password" varchar(255) not null,
+        "profileImageUrl" varchar(255),
+        primary key ("id")
+    )
+2025-11-14 12:04:33,097 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_user 
+       on "addresses" ("user_id")
+2025-11-14 12:04:33,099 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_address_default 
+       on "addresses" ("user_id", "isDefault")
+2025-11-14 12:04:33,102 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_email 
+       on "users" ("email")
+2025-11-14 12:04:33,104 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_phone 
+       on "users" ("phoneNumber")
+2025-11-14 12:04:33,106 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    create index idx_user_role 
+       on "users" ("role")
+2025-11-14 12:04:33,108 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       add constraint "FK1o3cf1oq29twu2e49lxh6u8pg" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 12:04:33,117 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       add constraint "FKkcjtpklna4ym5c19ym2pmjkuq" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 12:04:33,119 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       add constraint "FK8fenw11chwbd31jgayrx86vll" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 12:04:33,121 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       add constraint "FKsny3a8mx1j0x10oy32nbv53x0" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 12:04:33,124 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FKrnpho6nwth59gol8v9lyjb9sj" 
+       foreign key ("dish_id") 
+       references "dishes"
+2025-11-14 12:04:33,126 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       add constraint "FK6gg8woymk43fp55jtjlgkd1eh" 
+       foreign key ("order_id") 
+       references "orders"
+2025-11-14 12:04:33,128 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FK35r28bu0fnis2c0ed2pels2mb" 
+       foreign key ("delivery_address_id") 
+       references "addresses"
+2025-11-14 12:04:33,129 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       add constraint "FKitd0598xtxfyrro0df4ey8kdd" 
+       foreign key ("user_id") 
+       references "users"
+2025-11-14 12:04:33,131 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       add constraint "FK67d4njd6wxctoxt50x2j2ueyh" 
+       foreign key ("plan_id") 
+       references "membership_plans"
+2025-11-14 12:04:33,137 INFO  [main] [trace=] [user=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 12:04:33,418 INFO  [main] [trace=] [user=] o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-14 12:04:39,335 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Initializing Razorpay client with key: rzp_****p8IS in test environment
+2025-11-14 12:04:39,336 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay configuration validated successfully
+2025-11-14 12:04:39,771 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Configured Razorpay client timeout: 30000 ms
+2025-11-14 12:04:39,771 INFO  [main] [trace=] [user=] com.tiffin.config.RazorpayConfig - Razorpay client initialized successfully
+2025-11-14 12:04:40,579 INFO  [main] [trace=] [user=] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-14 12:04:41,215 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2025-11-14 12:04:41,216 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@483ffcf9]]
+2025-11-14 12:04:41,217 INFO  [main] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2025-11-14 12:04:41,219 INFO  [main] [trace=] [user=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-11-14 12:04:41,272 INFO  [main] [trace=] [user=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/api'
+2025-11-14 12:04:41,292 INFO  [main] [trace=] [user=] com.tiffin.TiffinApiApplication - Started TiffinApiApplication in 12.546 seconds (process running for 12.852)
+2025-11-14 12:04:41,526 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    select
+        ui1_0."id",
+        ui1_0."category",
+        ui1_0."contentType",
+        ui1_0."fileData",
+        ui1_0."fileSize",
+        ui1_0."filename",
+        ui1_0."image_id",
+        ui1_0."updatedAt",
+        ui1_0."uploadedAt" 
+    from
+        "uploaded_images" ui1_0 
+    where
+        ui1_0."category"=? 
+        and ui1_0."image_id"=?
+2025-11-14 12:04:41,595 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 🏷️ No logo found, creating default TiffinApp logo...
+2025-11-14 12:04:41,688 DEBUG [main] [trace=] [user=] org.hibernate.SQL - 
+    insert 
+    into
+        "uploaded_images"
+        ("category", "contentType", "fileData", "fileSize", "filename", "image_id", "updatedAt", "uploadedAt") 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-14 12:04:41,757 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - 📷 Default TiffinApp logo saved to database
+2025-11-14 12:04:41,757 INFO  [main] [trace=] [user=] com.tiffin.config.LogoInitializer - ✅ Default logo created successfully!
+2025-11-14 12:04:48,789 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-14 12:04:48,796 INFO  [tomcat-shutdown] [trace=] [user=] o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-14 12:04:48,798 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Stopping...
+2025-11-14 12:04:48,798 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@483ffcf9]]
+2025-11-14 12:04:48,798 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.m.s.b.SimpleBrokerMessageHandler - Stopped.
+2025-11-14 12:04:48,803 INFO  [SpringApplicationShutdownHook] [trace=] [user=] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-14 12:04:48,805 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    set client_min_messages = WARNING
+2025-11-14 12:04:48,807 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "addresses" 
+       drop constraint if exists "FK1o3cf1oq29twu2e49lxh6u8pg"
+2025-11-14 12:04:48,813 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_dietary_tags" 
+       drop constraint if exists "FKkcjtpklna4ym5c19ym2pmjkuq"
+2025-11-14 12:04:48,814 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "dish_tags" 
+       drop constraint if exists "FK8fenw11chwbd31jgayrx86vll"
+2025-11-14 12:04:48,816 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "membership_plan_features" 
+       drop constraint if exists "FKsny3a8mx1j0x10oy32nbv53x0"
+2025-11-14 12:04:48,819 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FKrnpho6nwth59gol8v9lyjb9sj"
+2025-11-14 12:04:48,820 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "order_items" 
+       drop constraint if exists "FK6gg8woymk43fp55jtjlgkd1eh"
+2025-11-14 12:04:48,822 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FK35r28bu0fnis2c0ed2pels2mb"
+2025-11-14 12:04:48,824 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "orders" 
+       drop constraint if exists "FKitd0598xtxfyrro0df4ey8kdd"
+2025-11-14 12:04:48,825 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    alter table if exists "user_memberships" 
+       drop constraint if exists "FK67d4njd6wxctoxt50x2j2ueyh"
+2025-11-14 12:04:48,826 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "addresses" cascade
+2025-11-14 12:04:48,831 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "customer_testimonials" cascade
+2025-11-14 12:04:48,835 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_dietary_tags" cascade
+2025-11-14 12:04:48,837 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dish_tags" cascade
+2025-11-14 12:04:48,838 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "dishes" cascade
+2025-11-14 12:04:48,841 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "featured_dishes" cascade
+2025-11-14 12:04:48,845 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "landing_analytics" cascade
+2025-11-14 12:04:48,849 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_points" cascade
+2025-11-14 12:04:48,851 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "loyalty_transactions" cascade
+2025-11-14 12:04:48,855 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plan_features" cascade
+2025-11-14 12:04:48,857 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "membership_plans" cascade
+2025-11-14 12:04:48,861 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "newsletter_subscriptions" cascade
+2025-11-14 12:04:48,865 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "notifications" cascade
+2025-11-14 12:04:48,868 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "order_items" cascade
+2025-11-14 12:04:48,871 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "orders" cascade
+2025-11-14 12:04:48,875 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "payments" cascade
+2025-11-14 12:04:48,878 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "reviews" cascade
+2025-11-14 12:04:48,882 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "uploaded_images" cascade
+2025-11-14 12:04:48,887 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "user_memberships" cascade
+2025-11-14 12:04:48,890 DEBUG [SpringApplicationShutdownHook] [trace=] [user=] org.hibernate.SQL - 
+    drop table if exists "users" cascade
+2025-11-14 12:04:48,897 INFO  [SpringApplicationShutdownHook] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Shutdown initiated...
+2025-11-14 12:04:48,900 INFO  [SpringApplicationShutdownHook] [trace=] [user=] com.zaxxer.hikari.HikariDataSource - TiffinHikariCP - Shutdown completed.

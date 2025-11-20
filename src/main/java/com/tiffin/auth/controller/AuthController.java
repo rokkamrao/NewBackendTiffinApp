@@ -3,8 +3,17 @@ package com.tiffin.auth.controller;
 import com.tiffin.auth.dto.AuthResponse;
 import com.tiffin.auth.dto.CompleteSignupRequest;
 import com.tiffin.auth.dto.OtpRequest;
+import com.tiffin.auth.dto.SignInRequest;
 import com.tiffin.auth.dto.VerifyOtpRequest;
 import com.tiffin.auth.service.AuthenticationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +33,7 @@ import jakarta.validation.Valid;
 @RequiredArgsConstructor
 @CrossOrigin(origins = {"https://tiffin-self.vercel.app", "http://localhost:4200"})
 @Slf4j
+@Tag(name = "Authentication", description = "User authentication and registration endpoints")
 public class AuthController {
     
     private final AuthenticationService authService;
@@ -34,8 +44,66 @@ public class AuthController {
      * @param request OTP request containing phone number
      * @return Response with OTP status
      */
+    @Operation(
+        summary = "Send OTP to phone number",
+        description = """
+            Sends a One-Time Password (OTP) to the provided phone number for verification.
+            
+            **Process:**
+            1. Validates the phone number format
+            2. Generates a 6-digit OTP code
+            3. Sends the OTP via SMS (simulated in development)
+            4. Returns the OTP ID for verification
+            
+            **Phone Number Format:** Should include country code (e.g., +1234567890)
+            """,
+        tags = {"Authentication"}
+    )
+    @ApiResponses({
+        @ApiResponse(
+            responseCode = "200", 
+            description = "OTP sent successfully",
+            content = @Content(
+                mediaType = "application/json",
+                schema = @Schema(implementation = AuthResponse.class),
+                examples = @ExampleObject(
+                    name = "Success Response",
+                    value = """
+                        {
+                            "success": true,
+                            "message": "OTP sent successfully",
+                            "otpId": "123456",
+                            "user": null,
+                            "token": null
+                        }
+                        """
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = "400",
+            description = "Invalid phone number format",
+            content = @Content(
+                mediaType = "application/json",
+                examples = @ExampleObject(
+                    name = "Error Response",
+                    value = """
+                        {
+                            "success": false,
+                            "message": "Invalid phone number format",
+                            "otpId": null,
+                            "user": null,
+                            "token": null
+                        }
+                        """
+                )
+            )
+        )
+    })
     @PostMapping("/send-otp")
-    public ResponseEntity<AuthResponse> sendOtp(@Valid @RequestBody OtpRequest request) {
+    public ResponseEntity<AuthResponse> sendOtp(
+            @Parameter(description = "OTP request containing phone number", required = true)
+            @Valid @RequestBody OtpRequest request) {
         log.info("📱 POST /api/auth/send-otp - Phone: {}", request.getPhone());
         try {
             AuthResponse response = authService.sendOtp(request.getPhone());
@@ -77,6 +145,37 @@ public class AuthController {
         } catch (Exception e) {
             log.error("✗ OTP verification failed - Phone: {}, Error: {}", request.getPhone(), e.getMessage(), e);
             return ResponseEntity.ok(AuthResponse.error("OTP verification failed: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * User sign-in with phone/email and password
+     * 
+     * @param request Sign-in request with credentials
+     * @return Response with user data and JWT token
+     */
+    @Operation(
+        summary = "Sign in with credentials",
+        description = "Authenticate user with phone number/email and password",
+        tags = {"Authentication"}
+    )
+    @PostMapping("/sign-in")
+    public ResponseEntity<AuthResponse> signIn(@Valid @RequestBody SignInRequest request) {
+        log.info("🔑 POST /api/auth/sign-in - Phone/Email: {}", request.getPhone());
+        try {
+            AuthResponse response = authService.login(request);
+            
+            if (response.isSuccess()) {
+                log.info("✓ Sign-in successful - Phone/Email: {}", request.getPhone());
+            } else {
+                log.warn("⚠ Sign-in failed - Phone/Email: {}, Message: {}", request.getPhone(), response.getMessage());
+            }
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            log.error("✗ Sign-in failed - Phone/Email: {}, Error: {}", request.getPhone(), e.getMessage(), e);
+            return ResponseEntity.ok(AuthResponse.error("Sign-in failed: " + e.getMessage()));
         }
     }
 
