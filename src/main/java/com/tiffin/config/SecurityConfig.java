@@ -91,10 +91,9 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:4200",    // Angular dev server
             "http://localhost:3000",    // React dev server (if needed)
-            "https://yourdomain.com",   // Production domain
-            "https://tiffin-3i6e6ma5u-mohits-projects-d8cba204.vercel.app",  // Vercel frontend
-            "https://*.vercel.app",     // All Vercel domains
-            "https://*.railway.app"     // All Railway domains
+            "https://tiffin-self.vercel.app",  // Current Vercel frontend
+            "https://tiffin-9v7yr4yee-mohits-projects-d8cba204.vercel.app",  // Previous Vercel frontend
+            "https://tiffin-3i6e6ma5u-mohits-projects-d8cba204.vercel.app"   // Old Vercel frontend
         ));
         
         // Allow common HTTP methods
@@ -114,7 +113,7 @@ public class SecurityConfig {
         ));
         
         // Allow credentials for authenticated requests
-        configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(false);  // Set to false to allow wildcard headers
 
         // Apply CORS configuration to all endpoints
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
