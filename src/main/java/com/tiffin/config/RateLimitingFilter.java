@@ -2,13 +2,13 @@ package com.tiffin.config;
 
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
-import io.github.bucket4j.Refill;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -39,10 +39,8 @@ public class RateLimitingFilter extends OncePerRequestFilter {
     private final ConcurrentHashMap<String, Bucket> ipBuckets = new ConcurrentHashMap<>();
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, 
-                                  FilterChain filterChain) throws ServletException, IOException {
-        
-        String clientKey = getClientIdentifier(request);
+    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response,
+                                  @NonNull FilterChain filterChain) throws ServletException, IOException {        String clientKey = getClientIdentifier(request);
         String endpoint = request.getRequestURI();
         
         Bucket bucket = getBucketForClient(clientKey, endpoint);
@@ -101,7 +99,10 @@ public class RateLimitingFilter extends OncePerRequestFilter {
      * Create bucket for general API endpoints
      */
     private Bucket createGeneralBucket(String key) {
-        Bandwidth limit = Bandwidth.classic(requestsPerMinute, Refill.intervally(requestsPerMinute, Duration.ofMinutes(1)));
+        Bandwidth limit = Bandwidth.builder()
+                .capacity(requestsPerMinute)
+                .refillIntervally(requestsPerMinute, Duration.ofMinutes(1))
+                .build();
         return Bucket.builder()
                 .addLimit(limit)
                 .build();
@@ -111,7 +112,10 @@ public class RateLimitingFilter extends OncePerRequestFilter {
      * Create bucket for authentication endpoints (stricter limits)
      */
     private Bucket createAuthBucket(String key) {
-        Bandwidth limit = Bandwidth.classic(authRequestsPerMinute, Refill.intervally(authRequestsPerMinute, Duration.ofMinutes(1)));
+        Bandwidth limit = Bandwidth.builder()
+                .capacity(authRequestsPerMinute)
+                .refillIntervally(authRequestsPerMinute, Duration.ofMinutes(1))
+                .build();
         return Bucket.builder()
                 .addLimit(limit)
                 .build();
@@ -147,7 +151,7 @@ public class RateLimitingFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+    protected boolean shouldNotFilter(@NonNull HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
         
         // Skip rate limiting for health checks and documentation

@@ -149,7 +149,7 @@ public class AuthenticationService {
             
             if (user == null) {
                 // Create new user with all details
-                user = User.builder()
+                User newUser = User.builder()
                         .phoneNumber(request.getPhone())
                         .email(request.getEmail() != null ? request.getEmail() : request.getPhone() + "@tiffin.com")
                         .password(request.getPassword() != null ? request.getPassword() : "")
@@ -160,7 +160,9 @@ public class AuthenticationService {
                         .phoneVerified(true) // Assume phone is verified if we reach this point
                         .emailVerified(false)
                         .build();
-                user = userRepository.save(user);
+                @SuppressWarnings("null")
+                User savedUser = userRepository.save(newUser);
+                user = savedUser;
             } else {
                 // Update existing user with additional details
                 if (request.getEmail() != null && !request.getEmail().isEmpty()) {
@@ -230,7 +232,9 @@ public class AuthenticationService {
                 .emailVerified(false)
                 .build();
         
-        return userRepository.save(user);
+        @SuppressWarnings("null")
+        User savedUser = userRepository.save(user);
+        return savedUser;
     }
 
     /**
@@ -289,6 +293,100 @@ public class AuthenticationService {
     /**
      * Generate OTP (fixed for development, random for production)
      */
+    /**
+     * Validate session token and return user data
+     */
+    public AuthResponse validateSession(String token) {
+        try {
+            log.info("🔍 Validating session token");
+            
+            // In a real JWT implementation, you would:
+            // 1. Parse and validate the JWT token
+            // 2. Check token expiration
+            // 3. Verify signature
+            // 4. Extract user ID from token claims
+            
+            // Validate token format
+            if (token == null || token.trim().isEmpty()) {
+                return AuthResponse.error("Invalid token");
+            }
+            
+            // Extract user ID from simple token format (jwt_token_{userId}_{timestamp})
+            // Note: This is a simplified implementation. In production, use proper JWT libraries
+            if (!token.startsWith("jwt_token_")) {
+                return AuthResponse.error("Invalid token format");
+            }
+            
+            try {
+                String[] parts = token.split("_");
+                if (parts.length < 3) {
+                    return AuthResponse.error("Invalid token format");
+                }
+                
+                Long userId = Long.parseLong(parts[2]);
+                long timestamp = Long.parseLong(parts[3]);
+                
+                // Check token age (24 hours expiry)
+                long currentTime = System.currentTimeMillis();
+                long tokenAge = currentTime - timestamp;
+                long maxAge = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                
+                if (tokenAge > maxAge) {
+                    return AuthResponse.error("Token expired");
+                }
+                
+                // Find user by ID
+                User user = userRepository.findById(userId).orElse(null);
+                if (user == null || !user.isActive()) {
+                    return AuthResponse.error("User not found or inactive");
+                }
+                
+                log.info("✅ Token validation successful for user: {}", userId);
+                
+                // Build user info response
+                AuthResponse.UserInfo userInfo = AuthResponse.UserInfo.builder()
+                        .id(user.getId())
+                        .firstName(user.getFirstName())
+                        .lastName(user.getLastName())
+                        .email(user.getEmail())
+                        .phone(user.getPhoneNumber())
+                        .phoneVerified(user.isPhoneVerified())
+                        .emailVerified(user.isEmailVerified())
+                        .role(user.getRole().toString())
+                        .build();
+                
+                return AuthResponse.success("Token valid", token, userInfo);
+                
+            } catch (NumberFormatException e) {
+                return AuthResponse.error("Invalid token format");
+            }
+            
+        } catch (Exception e) {
+            log.error("❌ Token validation failed: {}", e.getMessage(), e);
+            return AuthResponse.error("Token validation failed");
+        }
+    }
+    
+    /**
+     * Logout user and invalidate token
+     */
+    public void logout(String token) {
+        try {
+            log.info("🚪 Logging out user with token");
+            
+            // In a real implementation:
+            // 1. Add token to blacklist/revocation list
+            // 2. Clear any server-side session data
+            // 3. Optionally notify other services
+            
+            // For now, just log the logout
+            log.info("✅ User logged out successfully");
+            
+        } catch (Exception e) {
+            log.error("❌ Logout failed: {}", e.getMessage(), e);
+        }
+    }
+
     private String generateOtp() {
         // For development: use fixed OTP 123456
         // For production: use random OTP

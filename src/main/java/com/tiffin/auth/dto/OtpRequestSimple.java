@@ -1,0 +1,40 @@
+package com.tiffin.auth.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+/**
+ * Request DTO for sending OTP to phone number
+ */
+@Schema(description = "Request to send OTP to a phone number")
+public class OtpRequestSimple {
+    
+    @Schema(
+        description = "Phone number with country code (e.g., +1234567890)",
+        example = "+1234567890",
+        pattern = "^\\+[1-9]\\d{1,14}$"
+    )
+    @NotBlank(message = "Phone number is required")
+    @Pattern(
+        regexp = "^\\+[1-9]\\d{1,14}$",
+        message = "Phone number must start with + followed by country code and digits (e.g., +1234567890)"
+    )
+    @Size(min = 10, max = 16, message = "Phone number must be between 10-16 characters including country code")
+    private String phone;
+    
+    public OtpRequestSimple() {}
+    
+    public OtpRequestSimple(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+}

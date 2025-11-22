@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * Authentication Controller
@@ -202,6 +203,64 @@ public class AuthController {
         } catch (Exception e) {
             log.error("✗ User signup failed - Phone: {}, Error: {}", request.getPhone(), e.getMessage(), e);
             return ResponseEntity.ok(AuthResponse.error("Registration failed: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Validate current session/token
+     * 
+     * @return Response with current user data if session is valid
+     */
+    @GetMapping("/validate-session")
+    public ResponseEntity<AuthResponse> validateSession(HttpServletRequest request) {
+        log.info("🔍 GET /api/auth/validate-session - Session validation requested");
+        try {
+            // Extract token from Authorization header
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+                log.warn("⚠ No valid Authorization header found");
+                return ResponseEntity.ok(AuthResponse.error("No valid session found"));
+            }
+            
+            String token = authHeader.substring(7);
+            AuthResponse response = authService.validateSession(token);
+            
+            if (response.isSuccess()) {
+                log.info("✓ Session validation successful");
+            } else {
+                log.warn("⚠ Session validation failed: {}", response.getMessage());
+            }
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            log.error("✗ Session validation error: {}", e.getMessage(), e);
+            return ResponseEntity.ok(AuthResponse.error("Session validation failed: " + e.getMessage()));
+        }
+    }
+
+    /**
+     * Logout and invalidate session
+     * 
+     * @return Response confirming logout
+     */
+    @PostMapping("/logout")
+    public ResponseEntity<AuthResponse> logout(HttpServletRequest request) {
+        log.info("🚪 POST /api/auth/logout - Logout requested");
+        try {
+            // Extract token from Authorization header
+            String authHeader = request.getHeader("Authorization");
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                String token = authHeader.substring(7);
+                authService.logout(token);
+            }
+            
+            log.info("✓ User logged out successfully");
+            return ResponseEntity.ok(AuthResponse.success("Logged out successfully"));
+            
+        } catch (Exception e) {
+            log.error("✗ Logout error: {}", e.getMessage(), e);
+            return ResponseEntity.ok(AuthResponse.error("Logout failed: " + e.getMessage()));
         }
     }
 

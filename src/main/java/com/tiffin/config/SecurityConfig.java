@@ -3,34 +3,40 @@ package com.tiffin.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import com.tiffin.security.JwtAuthenticationFilter;
+import com.tiffin.security.JwtTokenProvider;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Security configuration for the Tiffin API application.
- * 
- * Production-ready security configuration providing:
- * - Strict CORS configuration with environment-specific origins
- * - Comprehensive security headers
- * - JWT-based stateless authentication
- * - Role-based authorization
- * - CSRF protection for stateful operations
- * - Content Security Policy
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final JwtTokenProvider jwtTokenProvider;
+    private final UserDetailsService userDetailsService;
+
+    public SecurityConfig(JwtTokenProvider jwtTokenProvider, UserDetailsService userDetailsService) {
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.userDetailsService = userDetailsService;
+    }
 
     @Value("${app.cors.allowed-origins:http://localhost:4200}")
     private List<String> allowedOrigins;
@@ -50,21 +56,19 @@ public class SecurityConfig {
             // CORS Configuration
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             
-            // CSRF Configuration - Enable for stateful operations, disable for stateless API
-            .csrf(csrf -> csrf
-                .disable() // Disabled for stateless JWT API
-                // In production with cookies, enable: .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-            )
+            // CSRF Configuration - disabled for stateless JWT API
+            .csrf(csrf -> csrf.disable())
             
             // Security Headers
             .headers(headers -> headers
-                .frameOptions(frameOptions -> frameOptions.deny()) // Prevent clickjacking
-                .contentTypeOptions(contentTypeOptions -> {}) // Prevent MIME sniffing
+                .frameOptions(frameOptions -> frameOptions.deny())
+                .contentTypeOptions(contentTypeOptions -> {})
                 .httpStrictTransportSecurity(hstsConfig -> hstsConfig
-                    .maxAgeInSeconds(31536000) // 1 year
+                    .maxAgeInSeconds(31536000)
                     .includeSubDomains(true)
                     .preload(true))
-                .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
+                .referrerPolicy(referrerPolicy -> referrerPolicy
+                    .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
             )
             
             // Session Management
@@ -99,7 +103,7 @@ public class SecurityConfig {
                 // Newsletter signup
                 .requestMatchers("POST", "/api/newsletter/subscribe").permitAll()
                 
-                // Payment webhooks (require IP whitelisting in production)
+                // Payment webhooks
                 .requestMatchers("/api/payments/webhook/**").permitAll()
                 
                 // Actuator endpoints for health checks
@@ -124,8 +128,8 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             );
         
-        // Add JWT authentication filter here when implemented
-        // .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        // Add JWT authentication filter
+        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         
         return http.build();
     }
@@ -135,7 +139,23 @@ public class SecurityConfig {
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12); // High strength for production
+        return new BCryptPasswordEncoder(12);
+    }
+
+    /**
+     * Provides AuthenticationManager for authentication operations
+     */
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+
+    /**
+     * Provides JWT authentication filter
+     */
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter(jwtTokenProvider, userDetailsService);
     }
 
     /**
@@ -151,10 +171,11 @@ public class SecurityConfig {
             configuration.setAllowedOrigins(Arrays.asList(
                 "https://tiffin-self.vercel.app",
                 "https://tiffin-9v7yr4yee-mohits-projects-d8cba204.vercel.app",
-                "https://app.tiffindelivery.com" // Future custom domain
+                "https://app.tiffindelivery.com"
             ));
         } else {
-            // Development origins
+            // Development origins - more permissive for debugging
+            configuration.setAllowedOriginPatterns(Arrays.asList("*"));
             configuration.setAllowedOrigins(Arrays.asList(
                 "http://localhost:4200",
                 "http://localhost:3000", 
@@ -168,15 +189,8 @@ public class SecurityConfig {
             "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"
         ));
         
-        // Allowed headers
-        configuration.setAllowedHeaders(Arrays.asList(
-            "Authorization",
-            "Content-Type", 
-            "Accept",
-            "X-Requested-With",
-            "X-CSRF-Token",
-            "X-Trace-ID"
-        ));
+        // Allowed headers - more permissive for debugging
+        configuration.setAllowedHeaders(Arrays.asList("*"));
         
         // Exposed headers for client access
         configuration.setExposedHeaders(Arrays.asList(
@@ -188,10 +202,10 @@ public class SecurityConfig {
         ));
         
         // Allow credentials for cookie-based authentication (if needed)
-        configuration.setAllowCredentials(false); // Set to true if using cookies
+        configuration.setAllowCredentials(false);
         
         // Pre-flight request cache time
-        configuration.setMaxAge(3600L); // 1 hour
+        configuration.setMaxAge(3600L);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

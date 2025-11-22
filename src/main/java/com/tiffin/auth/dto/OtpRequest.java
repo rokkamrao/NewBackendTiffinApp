@@ -19,7 +19,6 @@ public class OtpRequest {
     @Schema(
         description = "Phone number with country code (e.g., +1234567890)",
         example = "+1234567890",
-        required = true,
         pattern = "^\\+[1-9]\\d{1,14}$"
     )
     @NotBlank(message = "Phone number is required")

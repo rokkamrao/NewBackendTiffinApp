@@ -210,7 +210,8 @@ public class GlobalExceptionHandler {
      * Handle type mismatch exceptions
      */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ErrorResponse> handleTypeMismatchException(MethodArgumentTypeMismatchException ex) {
+    @SuppressWarnings("null")
+    public ResponseEntity<ErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
         log.warn("🚫 Type mismatch: {}", ex.getMessage());
         
         String message = String.format("Invalid value '%s' for parameter '%s'. Expected type: %s", 
@@ -260,7 +261,9 @@ public class GlobalExceptionHandler {
                 .path(getCurrentPath())
                 .build();
         
-        return ResponseEntity.status(ex.getHttpStatus()).body(errorResponse);
+        @SuppressWarnings("null")
+        ResponseEntity<ErrorResponse> response = ResponseEntity.status(ex.getHttpStatus()).body(errorResponse);
+        return response;
     }
 
     /**

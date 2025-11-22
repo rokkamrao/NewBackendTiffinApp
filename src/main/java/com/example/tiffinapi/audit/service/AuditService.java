@@ -49,9 +49,11 @@ public class AuditService {
                     .source("API")
                     .build();
 
-            auditLogRepository.save(auditLog);
-            logger.info("Audit log created: {} {} for entity: {} id: {}", 
-                    action, entityType, entityType, entityId);
+            if (auditLog != null) {
+                auditLogRepository.save(auditLog);
+                logger.info("Audit log created: {} {} for entity: {} id: {}", 
+                        action, entityType, entityType, entityId);
+            }
         } catch (Exception e) {
             logger.error("Failed to create audit log", e);
         }

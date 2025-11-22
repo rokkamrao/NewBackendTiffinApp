@@ -40,13 +40,12 @@ public class AuthResponse {
         private String lastName;
         private String email;
         private String phone;
-        private String name; // Computed field
         private String profilePictureUrl;
         private boolean phoneVerified;
         private boolean emailVerified;
         private String role;
         
-        // Computed name field
+        // Computed name field getter
         public String getName() {
             if (firstName != null && lastName != null) {
                 return firstName + " " + lastName;
@@ -69,6 +68,13 @@ public class AuthResponse {
                 .success(true)
                 .message(message)
                 .data(authData)
+                .build();
+    }
+    
+    public static AuthResponse success(String message) {
+        return AuthResponse.builder()
+                .success(true)
+                .message(message)
                 .build();
     }
     

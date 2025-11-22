@@ -1,161 +1,123 @@
-# 🚀 TiffinApp Backend API
+# 🚀 TiffinApp - Backend API
 
-A comprehensive Spring Boot REST API for the TiffinApp food delivery and subscription platform.
+**Spring Boot REST API for food delivery platform**
 
-## 🏗️ **Technology Stack**
+## 🚀 Quick Start
 
-- **Spring Boot 3.5.2** - Main framework
-- **Java 21** - Programming language
-- **PostgreSQL 18** - Primary database
-- **Spring Data JPA** - Data persistence
-- **Spring Security** - Authentication & authorization
-- **JWT** - Token-based authentication
-- **Razorpay** - Payment gateway integration
-- **Maven** - Dependency management
-- **SLF4J + Logback** - Logging framework
-
-## 🚀 **Quick Start**
-
-### **Prerequisites**
-- Java 21 or higher
-- Maven 3.6+
-- PostgreSQL 18+
-- Git
-
-### **Database Setup**
-```sql
--- Create database and user
-CREATE DATABASE tiffindb;
-CREATE USER tiffin_user WITH ENCRYPTED PASSWORD 'tiffin_pass';
-GRANT ALL PRIVILEGES ON DATABASE tiffindb TO tiffin_user;
-
--- Connect to the database
-\c tiffindb
-
--- Grant schema permissions
-GRANT ALL ON SCHEMA public TO tiffin_user;
-```
-
-### **Environment Configuration**
-Create `src/main/resources/application-local.yml`:
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/tiffindb
-    username: tiffin_user
-    password: tiffin_pass
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-jwt:
-  secret: your_jwt_secret_key_here
-  expiration: 3600000
-
-razorpay:
-  key-id: your_razorpay_key_id
-  key-secret: your_razorpay_key_secret
-```
-
-### **Run the Application**
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd tiffin-api
-
-# Run with Maven
-mvn spring-boot:run
-
-# Or run with profile
-mvn spring-boot:run -Dspring-boot.run.profiles=local
+mvn spring-boot:run  # http://localhost:8081/api
 ```
 
-The API will be available at `http://localhost:8081/api`
+**Prerequisites**: Java 21+, Maven 3.6+, PostgreSQL 18+
 
-## 📁 **Project Structure**
+**Frontend**: Start [tiffin-app](../tiffin-app) on port 4200
 
-```
-src/main/java/com/tiffin/api/
-├── admin/                  # Admin management
-│   ├── controller/
-│   ├── dto/
-│   └── service/
-├── auth/                   # Authentication & authorization
-│   ├── controller/
-│   ├── dto/
-│   ├── security/
-│   └── service/
-├── common/                 # Shared utilities
-│   ├── dto/
-│   └── logging/
-├── config/                 # Configuration classes
-├── dish/                   # Menu/dish management
-├── order/                  # Order processing
-├── user/                   # User management
-├── payment/                # Payment processing
-├── subscription/           # Subscription management
-├── storage/                # File storage
-└── notification/           # Notification system
-```
+## 🔑 Demo Credentials
 
-## 🔧 **Key Features**
+**Pre-configured test accounts for development and testing:**
 
-### **Authentication & Authorization**
-- **JWT-based authentication** with refresh tokens
-- **Role-based access control** (USER, ADMIN, DELIVERY, KITCHEN_STAFF)
-- **OTP verification** for phone/email
-- **Password reset** functionality
-- **Auto-admin creation** on first startup
+| Role | Email/Login | Password | Phone | Access Level |
+|------|-------------|----------|-------|-------------|
+| **Test User** | `test@tiffin.app` or `9999999999` | `test123` | `9999999999` | Standard user features |
+| **Admin** | `admin@tiffin.app` | `admin123` | `9876543212` | Admin dashboard & management |
+| **Super Admin** | `superadmin@tiffin.app` | `superadmin123` | `9876543213` | Full system access |
+| **Regular User** | `john.customer@example.com` | `password123` | `9876543210` | Customer account |
+| **Premium User** | `priya.premium@example.com` | `password123` | `9876543211` | Premium features |
+| **Delivery Person** | `delivery@tiffin.app` | `delivery123` | `9876543214` | Delivery operations |
+| **Restaurant Partner** | `partner@tiffin.app` | `partner123` | `9876543215` | Restaurant management |
 
-### **Order Management**
-- **Real-time order tracking** with status updates
-- **Bulk order operations** for admin
-- **Order filtering and search** capabilities
-- **Payment integration** with multiple methods
-- **Order analytics** and reporting
+**🔐 Authentication Details:**
+```json
+// Example login request
+{
+  "phone": "9999999999",
+  "password": "test123"
+}
 
-### **Menu & Dish Management**
-- **CRUD operations** for dishes
-- **Category management** and filtering
-- **Availability tracking** and inventory
-- **Image upload** and management
-- **Dietary preferences** support
-
-### **Admin Dashboard**
-- **Real-time statistics** and KPIs
-- **User management** with role assignments
-- **Order analytics** and insights
-- **System health monitoring**
-- **Sample data creation** for testing
-
-### **Payment Integration**
-- **Razorpay integration** for online payments
-- **Multiple payment methods** support
-- **Payment tracking** and reconciliation
-- **Refund processing** capabilities
-
-## 🔐 **Security Features**
-
-### **Authentication Flow**
-1. User registration with phone/email
-2. OTP verification
-3. JWT token generation
-4. Token validation on protected routes
-5. Refresh token for extended sessions
-
-### **Authorization Levels**
-```java
-@RequireRole(Role.ADMIN)    // Admin-only endpoints
-@RequireRole(Role.USER)     // User-specific endpoints
-@RequireRole(Role.DELIVERY) // Delivery partner endpoints
+// Or with email
+{
+  "phone": "test@tiffin.app",
+  "password": "test123"
+}
 ```
 
-### **Security Configuration**
-- **CORS** configuration for frontend integration
-- **CSRF** protection for stateful operations
-- **Password encryption** with BCrypt
-- **Request correlation** IDs for tracking
+**🚀 API Test Commands:**
+```bash
+# Test user login
+curl -X POST http://localhost:8081/api/auth/sign-in \
+  -H "Content-Type: application/json" \
+  -d '{"phone":"9999999999","password":"test123"}'
+
+# Test admin login
+curl -X POST http://localhost:8081/api/auth/sign-in \
+  -H "Content-Type: application/json" \
+  -d '{"phone":"admin@tiffin.app","password":"admin123"}'
+
+# Universal OTP (development only)
+curl -X POST http://localhost:8081/api/auth/verify-otp \
+  -H "Content-Type: application/json" \
+  -d '{"phone":"9999999999","otp":"123456"}'
+```
+
+**⚠️ Security Notes:**
+- Passwords are BCrypt encrypted in database
+- Accounts created automatically via `SampleDataInitializer.java`
+- Universal OTP `123456` works in development mode only
+- Remove demo accounts in production deployment
+
+## 📚 **Complete Documentation**
+
+**📖 See [TIFFIN_PROJECT_DOCUMENTATION.md](../TIFFIN_PROJECT_DOCUMENTATION.md) for comprehensive documentation including:**
+
+- 🔐 JWT Authentication & Security
+- 📊 API Endpoints & Documentation
+- 🗄️ Database Schema & Setup
+- 🚀 Deployment & Configuration
+- 🔧 Technical Architecture
+- 🧪 Testing & Quality Assurance
+
+## ✅ Features
+
+### 🔐 **Authentication & Security**
+- JWT-based authentication with role management
+- OTP verification for phone/email
+- Password encryption with BCrypt
+- CORS configuration for Angular frontend
+
+### 📊 **Core APIs**
+- **Order Management** - Complete order lifecycle
+- **Menu System** - Dish and category management  
+- **Payment Integration** - Razorpay gateway
+- **User Management** - Registration and profiles
+- **Admin Dashboard** - Analytics and management
+
+### 🛠️ **Technical Features**
+- Auto-admin creation on startup
+- File upload and image management
+- Real-time notifications ready
+- Comprehensive logging and monitoring
+- Database health checks
+
+## 🛠️ Tech Stack
+
+- **Spring Boot 3.5.2** with Java 21
+- **Spring Security** + JWT tokens
+- **Spring Data JPA** + PostgreSQL
+- **Razorpay** payment integration
+- **Maven** build and dependency management
+
+## 🏗️ Project Structure
+
+```
+src/main/java/
+├── auth/          # JWT authentication & security
+├── order/         # Order processing & management
+├── dish/          # Menu and dish management
+├── payment/       # Razorpay integration
+├── user/          # User management & profiles
+├── admin/         # Admin functionality & analytics
+└── config/        # Spring configuration classes
+```
 
 ## 📊 **API Endpoints**
 

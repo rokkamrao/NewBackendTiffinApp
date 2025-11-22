@@ -24,8 +24,12 @@ public class WebSocketNotificationService {
      */
     public void sendToUser(String userId, String destination, Object message) {
         try {
-            messagingTemplate.convertAndSendToUser(userId, destination, message);
-            logger.info("Sent WebSocket message to user: {} at destination: {}", userId, destination);
+            if (userId != null && destination != null && message != null) {
+                messagingTemplate.convertAndSendToUser(userId, destination, message);
+                logger.info("Sent WebSocket message to user: {} at destination: {}", userId, destination);
+            } else {
+                logger.warn("Null parameter detected: userId={}, destination={}, message={}", userId, destination, message);
+            }
         } catch (Exception e) {
             logger.error("Failed to send WebSocket message to user: {}", userId, e);
         }
@@ -36,7 +40,12 @@ public class WebSocketNotificationService {
      */
     public void sendToTopic(String destination, Object message) {
         try {
-            messagingTemplate.convertAndSend("/topic" + destination, message);
+            if (destination != null && message != null) {
+                messagingTemplate.convertAndSend("/topic" + destination, message);
+            } else {
+                logger.warn("Null parameter detected: destination={}, message={}", destination, message);
+                return;
+            }
             logger.info("Sent WebSocket message to topic: {}", destination);
         } catch (Exception e) {
             logger.error("Failed to send WebSocket message to topic: {}", destination, e);

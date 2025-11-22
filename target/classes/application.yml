@@ -46,9 +46,8 @@ server:
 
 # Application-specific configuration
 app:
-  jwt:
-    secret: ${JWT_SECRET:tiffin-app-super-secret-jwt-key-2025-min-32-chars-required}
-    expiration: 86400000 # 24 hours in milliseconds
+  jwtSecret: ${JWT_SECRET:tiffin-app-super-secret-jwt-key-2025-min-32-chars-required}
+  jwtExpirationInMs: 86400000 # 24 hours in milliseconds
   cors:
     allowed-origins: ${CORS_ORIGINS:http://localhost:4200,http://localhost:3000}
   razorpay:
@@ -87,5 +86,5 @@ info:
     name: Tiffin API
     description: Food delivery and subscription platform API
     version: 1.0.0
-    build-time: '2025-11-20T10:26:38Z'
+    build-time: '2025-11-22T11:26:34Z'
     java-version: '21.0.9'
